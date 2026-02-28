@@ -1,0 +1,42 @@
+services:
+  postgresql:
+    image: postgres:17-alpine
+    container_name: postgresql
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: backend
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    environment:
+      DB_ENGINE: django.db.backends.postgresql
+      DB_NAME: db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: postgresql
+      DB_PORT: 5432
+    depends_on:
+      - postgresql
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+volumes:
+  postgres_data:
