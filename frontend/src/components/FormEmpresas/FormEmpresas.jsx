@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Swal from "sweetalert2";
-import { registerEmpresa } from '../../services/ServicesRegistro';
 import "./FormEmpresas.css";
 
 function FormEmpresas() {
