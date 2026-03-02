@@ -1,0 +1,172 @@
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+.zfll-login-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f3f4f6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== CARD ===== */
+.zfll-login-card {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== LOGO ===== */
+.zfll-login-logo {
+  width: 55px;
+  height: 55px;
+  background-color: #00a84f;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+/* ===== TITULO ===== */
+.zfll-login-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.zfll-login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* ===== LINKS ===== */
+.zfll-login-link {
+  color: #00a84f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.zfll-login-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== FORM ===== */
+.zfll-login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== INPUT GROUP ===== */
+.zfll-login-group {
+  margin-bottom: 18px;
+  color: black;
+}
+
+.zfll-login-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.zfll-login-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: 0.2s ease;
+  outline: none;
+}
+
+.zfll-login-group input:focus {
+  border-color: #00a84f;
+  box-shadow: 0 0 0 2px rgba(0, 168, 79, 0.2);
+}
+
+/* ===== OPTIONS ===== */
+.zfll-login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.zfll-login-remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+}
+
+/* ===== BOTON ===== */
+.zfll-login-button {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.zfll-login-button:hover {
+  background-color: #1e293b;
+  transform: scale(0.98);
+}
+
+/* ===== DIVIDER ===== */
+.zfll-login-divider {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 12px;
+  color: #6b7280;
+  position: relative;
+}
+
+.zfll-login-divider::before,
+.zfll-login-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.zfll-login-divider::before {
+  left: 0;
+}
+
+.zfll-login-divider::after {
+  right: 0;
+}
