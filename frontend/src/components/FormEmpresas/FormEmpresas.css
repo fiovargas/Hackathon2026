@@ -1,0 +1,153 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ===== TARJETA DEL FORMULARIO ===== */
+.form-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ===== GRUPOS DE CAMPOS ===== */
+.form-container div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== LABELS ===== */
+.form-container label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* ===== INPUTS Y TEXTAREA ===== */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #111827;
+  background-color: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container textarea:focus {
+  border-color: #1a56db;
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+  background-color: #ffffff;
+}
+
+.form-container input:disabled,
+.form-container textarea:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-container textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* ===== CHECKBOX ===== */
+.form-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1a56db;
+  cursor: pointer;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.form-container label:has(input[type="checkbox"]) {
+  flex-direction: row;
+  align-items: flex-start;
+  font-weight: 400;
+  color: #4b5563;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.form-container label a {
+  color: #1a56db;
+  text-decoration: underline;
+}
+
+.form-container label a:hover {
+  color: #1340a8;
+}
+
+/* ===== MENSAJES DE ERROR ===== */
+.error {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+/* ===== BOTÓN SUBMIT ===== */
+.form-container button[type="submit"] {
+  width: 100%;
+  background-color: #1a56db;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.form-container button[type="submit"]:hover:not(:disabled) {
+  background-color: #1340a8;
+}
+
+.form-container button[type="submit"]:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.form-container button[type="submit"]:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .container h2 {
+    font-size: 1.5rem;
+  }
+}
