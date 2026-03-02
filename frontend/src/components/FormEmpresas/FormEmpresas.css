@@ -1,153 +1,157 @@
-/* ===== CONTENEDOR PRINCIPAL ===== */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-  min-height: 100vh;
-  background-color: #f5f7fa;
+/* RESET GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.container h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a1a2e;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* ===== TARJETA DEL FORMULARIO ===== */
-.form-container {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
+html, body, #root {
+  height: 100%;
   width: 100%;
-  max-width: 520px;
 }
 
-/* ===== GRUPOS DE CAMPOS ===== */
-.form-container div {
+/* ===== WRAPPER ===== */
+.zfem-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== CARD ===== */
+.zfem-card {
+  width: 100%;
+  max-width: 450px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== LOGO ===== */
+.zfem-logo {
+  width: 55px;
+  height: 55px;
+  background-color: #00a84f;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+}
+
+/* ===== TITULO ===== */
+.zfem-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.zfem-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* ===== FORM ===== */
+.zfem-form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.2rem;
 }
 
-/* ===== LABELS ===== */
-.form-container label {
-  font-size: 0.9rem;
+/* ===== INPUT GROUP ===== */
+.zfem-group {
+  margin-bottom: 18px;
+  color: black;
+}
+
+.zfem-group label {
+  display: block;
+  font-size: 14px;
   font-weight: 600;
-  color: #374151;
   margin-bottom: 6px;
 }
 
-/* ===== INPUTS Y TEXTAREA ===== */
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container textarea {
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 0.95rem;
-  color: #111827;
-  background-color: #fafafa;
+.zfem-group input[type="text"],
+.zfem-group input[type="email"],
+.zfem-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  transition: 0.2s ease;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  font-family: inherit;
-}
-
-.form-container input[type="text"]:focus,
-.form-container input[type="email"]:focus,
-.form-container textarea:focus {
-  border-color: #1a56db;
-  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
-  background-color: #ffffff;
-}
-
-.form-container input:disabled,
-.form-container textarea:disabled {
-  background-color: #f3f4f6;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.form-container textarea {
+  font-family: Arial, Helvetica, sans-serif;
   resize: vertical;
-  min-height: 100px;
-  line-height: 1.6;
+}
+
+.zfem-group input[type="text"]:focus,
+.zfem-group input[type="email"]:focus,
+.zfem-group textarea:focus {
+  border-color: #00a84f;
+  box-shadow: 0 0 0 2px rgba(0, 168, 79, 0.2);
 }
 
 /* ===== CHECKBOX ===== */
-.form-container input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: #1a56db;
-  cursor: pointer;
-  margin-right: 8px;
-  flex-shrink: 0;
-}
-
-.form-container label:has(input[type="checkbox"]) {
-  flex-direction: row;
-  align-items: flex-start;
-  font-weight: 400;
+.zfem-options {
+  margin-bottom: 20px;
+  font-size: 14px;
   color: #4b5563;
-  cursor: pointer;
-  line-height: 1.5;
+  text-align: left;
 }
 
-.form-container label a {
-  color: #1a56db;
+.zfem-remember {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.zfem-remember input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: #00a84f;
+  cursor: pointer;
+}
+
+/* ===== LINKS ===== */
+.zfem-link {
+  color: #00a84f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.zfem-link:hover {
   text-decoration: underline;
 }
 
-.form-container label a:hover {
-  color: #1340a8;
-}
-
-/* ===== MENSAJES DE ERROR ===== */
-.error {
-  font-size: 0.8rem;
-  color: #ef4444;
-  margin-top: 4px;
-}
-
-/* ===== BOTÓN SUBMIT ===== */
-.form-container button[type="submit"] {
-  width: 100%;
-  background-color: #1a56db;
-  color: #ffffff;
+/* ===== BOTON ===== */
+.zfem-button {
+  background-color: #0f172a;
+  color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-  font-family: inherit;
-  letter-spacing: 0.01em;
+  transition: 0.2s ease;
+  width: 100%;
 }
 
-.form-container button[type="submit"]:hover:not(:disabled) {
-  background-color: #1340a8;
-}
-
-.form-container button[type="submit"]:active:not(:disabled) {
-  transform: scale(0.99);
-}
-
-.form-container button[type="submit"]:disabled {
-  background-color: #93c5fd;
-  cursor: not-allowed;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  .form-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .container h2 {
-    font-size: 1.5rem;
-  }
+.zfem-button:hover {
+  background-color: #1e293b;
+  transform: scale(0.98);
 }
