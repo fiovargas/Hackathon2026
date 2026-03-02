@@ -1,10 +1,12 @@
 import React from 'react'
-// import LandingPage from '../components/LandingPages/LandingPage'
+import LandingPage from '../components/LandingPage/LandingPage'
+import Header from '../components/Header/Header'
 
 function Inicio() {
   return (
     <div>
-      {/* <LandingPage/> */}
+      <LandingPage/>
+      <Header/>
     </div>
   )
 }
