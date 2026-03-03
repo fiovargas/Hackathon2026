@@ -9,26 +9,12 @@ import Navbar from '../components/Navbar/Navbar';
 function Routing() {
   return (
     <Router>
-      <Routes>
-
-
-        {/* Rutas Públicas */}
-        <Route path="/" element={<Inicio />} />
-        <Route path="/Navbar" element={<Navbar />} />
-        <Route path="/RegisterEstudiantes" element={<RegisterEstudiantes />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/RegisterEmpresas" element={<RegisterEmpresas />} />
-
-      </Routes>
-    </Router>
-  )
-        {/* Rutas Públicas */}
-        <Route path='/' element={<Inicio />} />
-        {/* <Route path="/Navbar" element={<Navbar/>}/> */}
-        <Route path='/register' element={<RegisterEstudiantes />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register/companies' element={<RegisterEmpresas />} />
-      </Routes>
+      {/* Rutas Públicas */}
+      <Route path='/' element={<Inicio />} />
+      {/* <Route path="/Navbar" element={<Navbar/>}/> */}
+      <Route path='/register' element={<RegisterEstudiantes />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register/companies' element={<RegisterEmpresas />} />
     </Router>
   );
 }
