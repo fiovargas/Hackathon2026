@@ -1,16 +1,14 @@
 import React from 'react'
 import LandingPage from '../components/LandingPage/LandingPage'
-<<<<<<< HEAD
-// import Navbar from '../components/Navbar/Navbar'
-=======
 import Navbar from '../components/LandingPage/Navbar'
->>>>>>> origin/Nora
+import Footer from '../components/LandingPage/Footer'
 
 function Inicio() {
   return (
     <div>
       {/* <Navbar /> */}
       <LandingPage />
+      <Footer />
     </div>
   )
 }
