@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Briefcase, Building2, User, LogIn, Menu, X } from 'lucide-react';
-import { AnimatePresence } from 'motion/react';
 import './Navbar.css'; // Importamos el CSS
 
 const Navbar = () => {
@@ -58,7 +57,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
+      <>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -96,7 +95,7 @@ const Navbar = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </>
     </nav>
   );
 };
