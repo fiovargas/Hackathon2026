@@ -1,0 +1,122 @@
+/* ApplicationCard.css */
+
+.application-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    transition: box-shadow 0.2s ease;
+}
+
+.application-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.application-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.application-user-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.application-status {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.status-pendiente {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-revisado {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-aceptado {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-rechazado {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-contratado {
+    background-color: #ede9fe;
+    color: #5b21b6;
+}
+
+.application-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.btn-action {
+    padding: 0.45rem 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-action:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.btn-view {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+
+.btn-accept {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.btn-reject {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-hire {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .application-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .application-card-actions {
+        width: 100%;
+    }
+
+    .btn-action {
+        flex: 1;
+        text-align: center;
+    }
+}
