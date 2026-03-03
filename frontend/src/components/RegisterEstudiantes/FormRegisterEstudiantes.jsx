@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { postData } from '../../../services/api';
-import FormInput from '../../ui/FormInput/FormInput';
-import Checkbox from '../../ui/Checkbox/Checkbox';
-import FormButton from '../../ui/FormButton/FormButton';
-import FormBody from '../../ui/FormBody/FormBody';
+import { postData } from '../../services/api';
+import FormInput from '../ui/FormInput/FormInput';
+import Checkbox from '../ui/Checkbox/Checkbox';
+import FormButton from '../ui/FormButton/FormButton';
+import FormBody from '../ui/FormBody/FormBody';
 import './RegisterPage.css';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
