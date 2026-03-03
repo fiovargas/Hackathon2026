@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterEstudiantes from '../components/forms/Register estudiantes/FormRegisterEstudiantes';
+import RegisterEstudiantes from '../components/forms/RegisterEstudiantes/FormRegisterEstudiantes';
 
 function RegistroEstudiantes() {
   return (
