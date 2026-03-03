@@ -1,11 +1,11 @@
 import React from 'react'
 import LandingPage from '../components/LandingPage/LandingPage'
-import Navbar from '../components/Navbar/Navbar'
+// import Navbar from '../components/Navbar/Navbar'
 
 function Inicio() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <LandingPage />
     </div>
   )
