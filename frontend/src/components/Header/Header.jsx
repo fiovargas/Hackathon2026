@@ -1,7 +1,5 @@
 import React from 'react';
-import Navbar from './Navbar';
-import './Header.css'; // Estilos del header
-
+import Navbar from '../Navbar/Navbar';
 const Header = ({ children, backgroundImage }) => {
   return (
     <header
