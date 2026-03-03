@@ -1,12 +1,12 @@
-import React from 'react'
-import RegisterEstudiantes from '../components/RegisterEstudiantes/RegisterEstudiantes'
+import React from 'react';
+import RegisterEstudiantes from '../components/forms/Register estudiantes/FormRegisterEstudiantes';
 
 function RegistroEstudiantes() {
   return (
     <div>
-      <RegisterEstudiantes/>
+      <RegisterEstudiantes />
     </div>
-  )
+  );
 }
 
-export default RegistroEstudiantes
+export default RegistroEstudiantes;
