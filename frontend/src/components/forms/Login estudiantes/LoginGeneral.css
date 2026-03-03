@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
 }
@@ -88,14 +90,25 @@ html, body, #root {
   color: black;
 }
 
-.zfll-login-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
+.zfll-label-error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 6px;
 }
 
-.zfll-login-group input {
+.zfll-login-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.zfll-label-error-container .zfll-error-message {
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.zfll-input {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
@@ -105,7 +118,11 @@ html, body, #root {
   outline: none;
 }
 
-.zfll-login-group input:focus {
+.zfll-input-error {
+  border-color: #ef4444 !important;
+}
+
+.zfll-input:focus {
   border-color: #00a84f;
   box-shadow: 0 0 0 2px rgba(0, 168, 79, 0.2);
 }
@@ -126,22 +143,11 @@ html, body, #root {
   color: #4b5563;
 }
 
-/* ===== BOTON ===== */
-.zfll-login-button {
-  background-color: #0f172a;
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.zfll-login-button:hover {
-  background-color: #1e293b;
-  transform: scale(0.98);
+.zfll-error-server {
+  font-size: 14px;
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 /* ===== DIVIDER ===== */
@@ -155,7 +161,7 @@ html, body, #root {
 
 .zfll-login-divider::before,
 .zfll-login-divider::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   width: 35%;
