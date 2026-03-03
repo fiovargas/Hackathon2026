@@ -5,8 +5,8 @@ import Header from '../components/Header/Header'
 function Inicio() {
   return (
     <div>
-      <LandingPage/>
-      <Header/>
+      <LandingPage />
+      <Header />
     </div>
   )
 }

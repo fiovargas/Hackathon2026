@@ -1,0 +1,93 @@
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+
+.checkbox-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.checkbox-input {
+  margin-top: 0.25rem;
+}
+
+.checkbox-label {
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.error-message {
+  color: #ef4444;
+}
+
+.checkbox-error-slot {
+  display: block;
+  min-height: 0.85rem;
+  margin-top: 0.2rem;
+  margin-left: 1.55rem;
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+.checkbox-error-slot.is-visible {
+  visibility: visible;
+}
+
+.required-star {
+  color: #ef4444;
+}
+
+/* Estilos para diferentes temas de formularios */
+/* FormEmpresas */
+.zfem-options {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #4b5563;
+  text-align: left;
+}
+
+.zfem-remember {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.zfem-remember input[type='checkbox'] {
+  margin-top: 3px;
+  accent-color: #00a84f;
+  cursor: pointer;
+}
+
+.zfem-link {
+  color: #00a84f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.zfem-link:hover {
+  text-decoration: underline;
+}
+
+/* LoginGeneral */
+.zfll-login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.zfll-login-remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+}
