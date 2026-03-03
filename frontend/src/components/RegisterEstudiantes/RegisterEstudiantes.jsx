@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { postData } from '../services/api'; // Tu servicio adaptado a Axios
-import FormInput from '../components/Register estudiantes/FormInput';
-import Checkbox from '../components/Register estudiantes/Checkbox';
-import '../components/Register estudiantes/RegisterPage.css'; 
+import { postData } from '../../services/api'; // Tu servicio adaptado a Axios
+import FormInput from "./FormInput";
+import Checkbox from "./Checkbox";
+import "./RegisterPage.css";
 
-const RegisterPage = () => {
+const RegisterEstudiantes = () => {
     const [formData, setFormData] = useState({
         name: '',
         last_name: '',
@@ -72,4 +72,4 @@ const RegisterPage = () => {
     );
 };
 
-export default RegisterPage;
+export default RegisterEstudiantes;
