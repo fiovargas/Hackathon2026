@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import Company, InstitutionFormation, User
 
+
 def _find_user(identifier):
     """Busca un User por email o por teléfono."""
     try:
@@ -21,7 +22,10 @@ def _find_entity(identifier):
     if user:
         return user, "user"
 
-    for entity_type, model in [("company", Company), ("institution", InstitutionFormation)]:
+    for entity_type, model in [
+        ("company", Company),
+        ("institution", InstitutionFormation),
+    ]:
         try:
             return model.objects.get(email=identifier), entity_type
         except model.DoesNotExist:
@@ -74,11 +78,16 @@ class RegisterUserSerializer(serializers.ModelSerializer):
 class RegisterCompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = ["name", "email", "description", "image_url"]
+        fields = ["name", "email", "description", "image_url", "consent"]
         extra_kwargs = {
             "description": {"required": False},
             "image_url": {"required": False},
         }
+
+    def validate_consent(self, value):
+        if not value:
+            raise serializers.ValidationError("You must accept the terms to register.")
+        return value
 
     def create(self, validated_data):
         from django.contrib.auth.hashers import make_password
@@ -92,11 +101,16 @@ class RegisterCompanySerializer(serializers.ModelSerializer):
 class RegisterInstitutionSerializer(serializers.ModelSerializer):
     class Meta:
         model = InstitutionFormation
-        fields = ["name", "email", "description", "image_url"]
+        fields = ["name", "email", "description", "image_url", "consent"]
         extra_kwargs = {
             "description": {"required": False},
             "image_url": {"required": False},
         }
+
+    def validate_consent(self, value):
+        if not value:
+            raise serializers.ValidationError("You must accept the terms to register.")
+        return value
 
     def create(self, validated_data):
         from django.contrib.auth.hashers import make_password
@@ -125,8 +139,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "id", "entity_type", "name", "last_name", "email",
-            "phone", "image_url", "role", "is_hired", "is_active",
+            "id",
+            "entity_type",
+            "name",
+            "last_name",
+            "email",
+            "phone",
+            "image_url",
+            "role",
+            "is_hired",
+            "is_active",
         ]
 
     def get_entity_type(self, obj):
@@ -138,7 +160,16 @@ class CompanyProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Company
-        fields = ["id", "entity_type", "name", "email", "description", "image_url", "role", "is_active"]
+        fields = [
+            "id",
+            "entity_type",
+            "name",
+            "email",
+            "description",
+            "image_url",
+            "role",
+            "is_active",
+        ]
 
     def get_entity_type(self, obj):
         return "company"
@@ -149,7 +180,16 @@ class InstitutionProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = InstitutionFormation
-        fields = ["id", "entity_type", "name", "email", "description", "image_url", "role", "is_active"]
+        fields = [
+            "id",
+            "entity_type",
+            "name",
+            "email",
+            "description",
+            "image_url",
+            "role",
+            "is_active",
+        ]
 
     def get_entity_type(self, obj):
         return "institution"
