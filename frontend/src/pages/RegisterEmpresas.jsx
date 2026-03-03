@@ -1,12 +1,12 @@
-import React from 'react'
-import FormEmpresas from '../components/FormEmpresas/FormEmpresas'
+import React from 'react';
+import FormEmpresas from '../components/forms/FormEmpresas/FormEmpresas';
 
 function RegisterEmpresas() {
   return (
     <div>
-      <FormEmpresas/>
+      <FormEmpresas />
     </div>
-  )
+  );
 }
 
-export default RegisterEmpresas
+export default RegisterEmpresas;
