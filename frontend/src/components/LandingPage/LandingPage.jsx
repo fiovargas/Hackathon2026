@@ -142,7 +142,7 @@ const LandingPage = () => {
         <h2>¿Listo para dar el siguiente paso?</h2>
         <p>Únete a miles de profesionales que ya han encontrado su carrera ideal en Zona Franca La Lima.</p>
         <div className="cta-buttons">
-          <Link to="/registro" className="cta-primary">Crear mi Perfil</Link>
+          <Link to="/register" className="cta-primary">Crear mi Perfil</Link>
           <Link to="/empleos" className="cta-secondary">Explorar Empleos</Link>
         </div>
       </section>
