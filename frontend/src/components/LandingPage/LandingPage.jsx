@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { companies, jobs } from "../../data/mockData"; 
 import './LandingPage.css'; // Importamos el CSS
 
-
 const LandingPage = () => {
   return (
     <div className="home-container">
