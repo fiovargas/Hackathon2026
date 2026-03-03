@@ -10,8 +10,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Inicio', path: '/', icon: <Briefcase size={18} /> },
-    { name: 'Empresas', path: '/empresas', icon: <Building2 size={18} /> },
-    { name: 'Ofertas', path: '/ofertas', icon: <Briefcase size={18} /> },
+    { name: 'Empresas', path: '/Empresas', icon: <Building2 size={18} /> },
+    { name: 'Pasantias/Aspirantes', path: '/Pasantias', icon: <Briefcase size={18} /> },
+    { name: 'Ofertas', path: '/Ofertas', icon: <Briefcase size={18} /> },
   ];
 
   const isActive = (path) => location.pathname === path;
