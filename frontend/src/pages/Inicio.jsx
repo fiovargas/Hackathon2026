@@ -5,8 +5,8 @@ import Navbar from '../components/Navbar/Navbar'
 function Inicio() {
   return (
     <div>
-      <Navbar />
       <LandingPage />
+      <Header />
     </div>
   )
 }

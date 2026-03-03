@@ -1,3 +1,4 @@
+<<<<<<< HEAD:frontend/src/components/RegisterEstudiantes/RegisterEstudiantes.jsx
 import React, { useState } from 'react';
 import { postData } from '../../services/api'; // Tu servicio adaptado a Axios
 import FormInput from "./FormInput";
@@ -73,3 +74,13 @@ const RegisterEstudiantes = () => {
 };
 
 export default RegisterEstudiantes;
+=======
+import React from 'react';
+import FormRegisterEstudiantes from '../components/forms/Register estudiantes/FormRegisterEstudiantes';
+
+function RegisterEstudiantes() {
+  return <FormRegisterEstudiantes />;
+}
+
+export default RegisterEstudiantes;
+>>>>>>> 681147a1c4a962aea1e62ade94b97335f079254f:frontend/src/pages/RegisterEstudiantes.jsx

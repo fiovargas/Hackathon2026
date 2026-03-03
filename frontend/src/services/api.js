@@ -1,19 +1,4 @@
-import axios from 'axios';
-
-const BASE_URL = 'http://localhost:8000';
-
-// Creamos una instancia de axios para centralizar la configuración
-const api = axios.create({
-    baseURL: BASE_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    }
-});
-
-/**
- * Nota: Django requiere el slash final (/) al final de cada endpoint.
- * Axios facilita esto.
- */
+import api from "../libs/axios";
 
 async function postData(obj, endpoint) {
     try {

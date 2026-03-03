@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Briefcase, Building2, User, LogIn, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from "framer-motion";
-import './Navbar.css';
+import './Navbar.css'; // Importamos el CSS
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,67 +16,56 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-inner">
-          <div className="navbar-left">
-            <Link to="/" className="navbar-logo">
-              <div className="navbar-icon">L</div>
-              <span className="navbar-title">
-                Bolsa de Empleo <span className="navbar-title-highlight">La Lima</span>
-              </span>
-            </Link>
-          </div>
+    <nav className='navbar'>
+      <div className='navbar-container'>
+        <div className='navbar-left'>
+          <Link to='/' className='navbar-logo'>
+            <div className='navbar-icon'>L</div>
+            <span className='navbar-title'>
+              Bolsa de Empleo <span className='highlight'>La Lima</span>
+            </span>
+          </Link>
+        </div>
 
-          {/* Desktop Links */}
-          <div className="navbar-desktop-menu">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`nav-link ${isActive(link.path) ? 'active' : 'inactive'}`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="navbar-divider" />
+        {/* Desktop Links */}
+        <div className='navbar-desktop'>
+          {navLinks.map((link) => (
             <Link
-              to="/login"
-              className="nav-link inactive"
+              key={link.path}
+              to={link.path}
+              className={`nav-link ${isActive(link.path) ? 'active' : ''}`}
             >
-              <LogIn size={18} />
-              <span>Ingresar</span>
+              {link.name}
             </Link>
-            <Link
-              to="/perfil"
-              className="nav-btn-icon"
-            >
-              <User size={20} />
-            </Link>
-          </div>
+          ))}
+          <div className='divider' />
+          <Link to='/login' className='nav-link login-link'>
+            <LogIn size={18} />
+            <span>Ingresar</span>
+          </Link>
+          <Link to='/perfil' className='profile-btn'>
+            <User size={20} />
+          </Link>
+        </div>
 
-          {/* Mobile menu button */}
-          <div className="navbar-mobile-toggle">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="mobile-toggle-btn"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+        {/* Mobile menu button */}
+        <div className='navbar-mobile-btn'>
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <AnimatePresence>
+      <>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mobile-menu"
+            className='mobile-menu'
           >
-            <div className="mobile-menu-inner">
+            <div className='mobile-links'>
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -88,18 +76,18 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="mobile-menu-divider">
+              <div className='mobile-divider'>
                 <Link
-                  to="/login"
+                  to='/login'
                   onClick={() => setIsOpen(false)}
-                  className="mobile-nav-link inactive"
+                  className='mobile-link'
                 >
                   Ingresar
                 </Link>
                 <Link
-                  to="/perfil"
+                  to='/perfil'
                   onClick={() => setIsOpen(false)}
-                  className="mobile-nav-link active"
+                  className='mobile-link profile-link'
                 >
                   Mi Perfil
                 </Link>
@@ -107,7 +95,9 @@ export default function Navbar() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </>
     </nav>
   );
-}
+};
+
+export default Navbar;
