@@ -165,3 +165,6 @@ GitHub.sublime-settings
 secrets.json
 .env
 settings.ini
+
+.github
+.claude
