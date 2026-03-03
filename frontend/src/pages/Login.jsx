@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginGeneral from '../components/forms/Login estudiantes/LoginGeneral';
+import LoginGeneral from '../components/forms/LoginEstudiantes/LoginGeneral';
 
 function Login() {
   return (
