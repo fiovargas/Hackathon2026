@@ -1,0 +1,133 @@
+/* VacanciesList.css */
+
+.vacancies-list-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.vacancies-list-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e0e7ff;
+    padding-bottom: 0.75rem;
+}
+
+.vacancies-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vacancy-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background-color: #f9fafb;
+    transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.vacancy-item:hover {
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.1);
+    transform: translateY(-2px);
+}
+
+.vacancy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vacancy-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.vacancy-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.vacancy-tag {
+    padding: 0.25rem 0.7rem;
+    background-color: #e0e7ff;
+    color: #4338ca;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.vacancy-status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.btn-view-applicants {
+    padding: 0.6rem 1.2rem;
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-view-applicants:hover {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+}
+
+.vacancies-loading,
+.vacancies-error,
+.vacancies-empty {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.vacancies-error {
+    color: #b91c1c;
+}
+
+@media (max-width: 600px) {
+    .vacancy-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .btn-view-applicants {
+        width: 100%;
+    }
+}
