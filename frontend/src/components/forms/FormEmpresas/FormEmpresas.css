@@ -5,7 +5,9 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
 }
@@ -75,16 +77,32 @@ html, body, #root {
   color: black;
 }
 
+.zfem-label-error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
 .zfem-group label {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 6px;
 }
 
-.zfem-group input[type="text"],
-.zfem-group input[type="email"],
-.zfem-group textarea {
+.zfem-required-star {
+  color: #ef4444;
+}
+
+.zfem-label-error-container .zfem-error-message {
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.zfem-group input[type='text'],
+.zfem-group input[type='email'],
+.zfem-group textarea,
+.zfem-input {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
@@ -96,9 +114,14 @@ html, body, #root {
   resize: vertical;
 }
 
-.zfem-group input[type="text"]:focus,
-.zfem-group input[type="email"]:focus,
-.zfem-group textarea:focus {
+.zfem-input-error {
+  border-color: #ef4444 !important;
+}
+
+.zfem-group input[type='text']:focus,
+.zfem-group input[type='email']:focus,
+.zfem-group textarea:focus,
+.zfem-input:focus {
   border-color: #00a84f;
   box-shadow: 0 0 0 2px rgba(0, 168, 79, 0.2);
 }
@@ -111,6 +134,48 @@ html, body, #root {
   text-align: left;
 }
 
+.zfem-type-section {
+  margin-bottom: 8px;
+}
+
+.zfem-type-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.zfem-type-options {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.zfem-type-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.zfem-type-option input[type='checkbox'] {
+  accent-color: #00a84f;
+  cursor: pointer;
+}
+
+.zfem-type-error {
+  display: block;
+  min-height: 0.85rem;
+  margin-top: 4px;
+  font-size: 12px;
+  visibility: hidden;
+}
+
+.zfem-type-error.is-visible {
+  visibility: visible;
+}
+
 .zfem-remember {
   display: flex;
   align-items: flex-start;
@@ -120,7 +185,7 @@ html, body, #root {
   text-align: left;
 }
 
-.zfem-remember input[type="checkbox"] {
+.zfem-remember input[type='checkbox'] {
   margin-top: 3px;
   accent-color: #00a84f;
   cursor: pointer;
@@ -135,23 +200,4 @@ html, body, #root {
 
 .zfem-link:hover {
   text-decoration: underline;
-}
-
-/* ===== BOTON ===== */
-.zfem-button {
-  background-color: #0f172a;
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s ease;
-  width: 100%;
-}
-
-.zfem-button:hover {
-  background-color: #1e293b;
-  transform: scale(0.98);
 }
