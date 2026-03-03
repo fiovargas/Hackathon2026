@@ -1,5 +1,5 @@
 import React from 'react';
-import FormRegisterEstudiantes from '../components/forms/Register estudiantes/FormRegisterEstudiantes';
+import FormRegisterEstudiantes from './FormRegisterEstudiantes';
 
 function RegisterEstudiantes() {
   return <FormRegisterEstudiantes />;
