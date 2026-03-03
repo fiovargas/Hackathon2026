@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import RegisterEstudiantes from '../components/RegisterEstudiantes/RegisterEstudiantes';
 import Inicio from '../pages/Inicio';
 import Login from '../pages/Login';
 import RegisterEmpresas from '../pages/RegisterEmpresas';
@@ -18,7 +16,7 @@ function Routing() {
         <Route path='/' element={<Inicio />} />
         <Route path='/Navbar' element={<Navbar />} />
         <Route path='/Footer' element={<Footer />} />
-        <Route path='/register' element={<RegisterEstudiantes />} />
+        <Route path='/register' element={<RegistroEstudiantes />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register/companies' element={<RegisterEmpresas />} />
         <Route path='/ListadoUsuarios' element={<ListadoUsuarios />} />
