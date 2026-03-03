@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { postData } from '../../../services/api';
+import { useAuth } from '../../../contexts/AuthContext';
 import FormInput from '../../ui/FormInput/FormInput';
 import FormButton from '../../ui/FormButton/FormButton';
 import FormBody from '../../ui/FormBody/FormBody';
@@ -29,6 +29,7 @@ const validate = (data) => {
 };
 
 function LoginGeneral() {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     identifier: '',
@@ -64,7 +65,7 @@ function LoginGeneral() {
     setLoading(true);
     try {
       const { remember: _remember, ...payload } = formData;
-      await postData(payload, 'auth/login');
+      login(payload);
       navigate('/');
     } catch (error) {
       const data = error.response?.data;
