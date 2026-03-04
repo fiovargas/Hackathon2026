@@ -4,11 +4,12 @@ import {
     ListItemButton, ListItemIcon, ListItemText, Divider, Avatar, Button
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import PendingCompaniesList from '../../components/Admin/PendingCompaniesList';
+import AdminCompanies from '../../components/Admin/AdminCompanies';
 import VacanciesList from '../../components/Admin/VacanciesList';
-import AdminAnalytics from '../../components/Admin/AdminAnalytics';
+import AdminRecentChanges from '../../components/Admin/AdminRecentChanges';
 import AdminHome from '../../components/Admin/AdminHome';
 import AdminSettings from '../../components/Admin/AdminSettings';
+import AdminModerators from '../../components/Admin/AdminModerators';
 
 const drawerWidth = 280;
 
@@ -92,7 +93,7 @@ const AdminDashboard = () => {
                         <SidebarLink icon="dashboard" label="Dashboard" active={activeTab === 'dashboard'} onClick={() => setActiveTab('dashboard')} />
                         <SidebarLink icon="domain" label="Empresas" active={activeTab === 'empresas'} onClick={() => setActiveTab('empresas')} />
                         <SidebarLink icon="work" label="Vacantes" active={activeTab === 'vacantes'} onClick={() => setActiveTab('vacantes')} />
-                        <SidebarLink icon="bar_chart" label="Analíticas" active={activeTab === 'analiticas'} onClick={() => setActiveTab('analiticas')} />
+                        <SidebarLink icon="history" label="Cambios Recientes" active={activeTab === 'cambios-recientes'} onClick={() => setActiveTab('cambios-recientes')} />
                     </List>
 
                     <Divider sx={{ my: 1, mx: 3 }} />
@@ -102,6 +103,7 @@ const AdminDashboard = () => {
                             Sistema
                         </Typography>
                     }>
+                        <SidebarLink icon="admin_panel_settings" label="Moderadores" active={activeTab === 'moderadores'} onClick={() => setActiveTab('moderadores')} />
                         <SidebarLink icon="settings" label="Configuración" active={activeTab === 'configuracion'} onClick={() => setActiveTab('configuracion')} />
                     </List>
 
@@ -167,7 +169,7 @@ const AdminDashboard = () => {
 
                     {activeTab === 'empresas' && (
                         <Box sx={{ maxWidth: 'xl', mx: 'auto', width: '100%', animation: 'fadeIn 0.5s ease-in-out' }}>
-                            <PendingCompaniesList />
+                            <AdminCompanies />
                         </Box>
                     )}
 
@@ -177,9 +179,15 @@ const AdminDashboard = () => {
                         </Box>
                     )}
 
-                    {activeTab === 'analiticas' && (
+                    {activeTab === 'cambios-recientes' && (
                         <Box sx={{ maxWidth: 'xl', mx: 'auto', width: '100%', animation: 'fadeIn 0.5s ease-in-out' }}>
-                            <AdminAnalytics />
+                            <AdminRecentChanges />
+                        </Box>
+                    )}
+
+                    {activeTab === 'moderadores' && (
+                        <Box sx={{ maxWidth: 'xl', mx: 'auto', width: '100%', animation: 'fadeIn 0.5s ease-in-out' }}>
+                            <AdminModerators />
                         </Box>
                     )}
 

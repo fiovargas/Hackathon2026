@@ -4,7 +4,7 @@ import { Search, Bell, User } from 'lucide-react';
 
 function HeaderEmpresas({ onSearch, isSidebarOpen }) {
   const [searchValue, setSearchValue] = useState('');
-  const [notifications, setNotifications] = useState([
+  const [notifications] = useState([
     { id: 1, message: 'Nueva postulación de Juan Pérez', time: '2 min' },
     { id: 2, message: 'Entrevista programada para María Rodríguez', time: '1 hora' },
   ]);

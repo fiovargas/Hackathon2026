@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SidebarEmpresas.css';
 import { Menu, X, Home, Briefcase, Users, User, Settings, LogOut } from 'lucide-react';
 
