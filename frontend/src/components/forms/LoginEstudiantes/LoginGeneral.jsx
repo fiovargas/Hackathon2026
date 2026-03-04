@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { useAuth } from '../../../contexts/AuthContext';
 import FormInput from '../../ui/FormInput/FormInput';
 import FormButton from '../../ui/FormButton/FormButton';
@@ -71,7 +73,7 @@ function LoginGeneral() {
       const data = error.response?.data;
       setServerError(
         data?.detail ||
-          'Email/teléfono o contraseña incorrectos. Intenta de nuevo.',
+        'Email/teléfono o contraseña incorrectos. Intenta de nuevo.',
       );
     } finally {
       setLoading(false);
@@ -98,9 +100,22 @@ function LoginGeneral() {
       formClassName='zfll-login-form'
       onSubmit={handleSubmit}
       footer={
-        <div className='zfll-login-divider'>
-          <span>O continuar con</span>
-        </div>
+        <>
+          <div className='zfll-login-divider'>
+            <span>O continuar con</span>
+          </div>
+          <div className='zfll-social-logins'>
+            <button type='button' className='zfll-social-btn zfll-social-google'>
+              <FcGoogle className='zfll-social-icon' />
+            </button>
+            <button type='button' className='zfll-social-btn zfll-social-facebook'>
+              <FaFacebook className='zfll-social-icon' />
+            </button>
+            <button type='button' className='zfll-social-btn zfll-social-instagram'>
+              <FaInstagram className='zfll-social-icon' />
+            </button>
+          </div>
+        </>
       }
     >
       <FormInput

@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Inicio', path: '/' },
-    { name: 'Estudiantes', path: '/Pasantias' },
+    { name: 'Practicantes/Pasantes', path: '/Pasantias' },
     { name: 'Empresas', path: '/Empresas' },
     { name: 'Directorio', path: '/Ofertas' },
   ];
@@ -101,7 +101,7 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="mobile-nav-link mobile-login-btn"
                 >
-                  Entrar a la aplicación <ArrowRight size={16} style={{ display: 'inline', marginLeft: '4px', verticalAlign: 'middle' }} />
+                  Login/Register <ArrowRight size={16} style={{ display: 'inline', marginLeft: '4px', verticalAlign: 'middle' }} />
                 </Link>
               </div>
             </div>

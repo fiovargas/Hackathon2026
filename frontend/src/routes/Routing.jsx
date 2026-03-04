@@ -5,8 +5,6 @@ import Login from '../pages/Login';
 import RegisterEmpresas from '../pages/RegisterEmpresas';
 import RegistroEstudiantes from '../pages/RegistroEstudiantes';
 import ListadoUsuarios from '../pages/ListadoUsuarios';
-import Navbar from '../components/LandingPage/Navbar';
-import Footer from '../components/LandingPage/Footer';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 
 function Routing() {
