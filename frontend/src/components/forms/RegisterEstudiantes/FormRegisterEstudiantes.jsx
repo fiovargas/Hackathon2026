@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { postData } from '../../../services/api';
 import FormInput from '../../ui/FormInput/FormInput';
 import Checkbox from '../../ui/Checkbox/Checkbox';
@@ -122,6 +124,24 @@ const FormRegisterEstudiantes = () => {
       subtitleClassName='register-subtitle'
       formClassName='register-form'
       onSubmit={handleSubmit}
+      footer={
+        <>
+          <div className='zfll-register-divider'>
+            <span>O registrarse con</span>
+          </div>
+          <div className='zfll-social-logins'>
+            <button type='button' className='zfll-social-btn zfll-social-google'>
+              <FcGoogle className='zfll-social-icon' />
+            </button>
+            <button type='button' className='zfll-social-btn zfll-social-facebook'>
+              <FaFacebook className='zfll-social-icon' />
+            </button>
+            <button type='button' className='zfll-social-btn zfll-social-instagram'>
+              <FaInstagram className='zfll-social-icon' />
+            </button>
+          </div>
+        </>
+      }
     >
       <div className='row'>
         <FormInput

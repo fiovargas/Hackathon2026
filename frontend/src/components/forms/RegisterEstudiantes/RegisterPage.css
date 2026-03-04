@@ -40,5 +40,71 @@
   font-size: 0.875rem;
   color: #ef4444;
   text-align: center;
-  margin-bottom: 0.75rem;
+}
+
+/* ===== DIVIDER ===== */
+.zfll-register-divider {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 12px;
+  color: #6b7280;
+  position: relative;
+}
+
+.zfll-register-divider::before,
+.zfll-register-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.zfll-register-divider::before {
+  left: 0;
+}
+
+.zfll-register-divider::after {
+  right: 0;
+}
+
+/* ===== SOCIAL REGISTERS ===== */
+.zfll-social-logins {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.zfll-social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.zfll-social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.zfll-social-icon {
+  font-size: 24px;
+}
+
+.zfll-social-facebook {
+  color: #1877f2;
+}
+
+.zfll-social-instagram {
+  color: #e4405f;
 }

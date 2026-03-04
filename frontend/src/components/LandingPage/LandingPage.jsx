@@ -44,7 +44,7 @@ const LandingPage = () => {
             <Link to="/register" className="btn-primary">
               Comienza Ahora <ArrowRight size={20} />
             </Link>
-            <Link to="/empresas" className="btn-secondary">
+            <Link to="/register/companies" className="btn-secondary">
               Para Empresas
             </Link>
           </motion.div>
