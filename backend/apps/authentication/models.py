@@ -1,4 +1,5 @@
-from django.contrib.auth.hashers import check_password as verify_password, make_password
+from django.contrib.auth.hashers import check_password as verify_password
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
@@ -72,6 +73,7 @@ class Company(models.Model):
     description = models.TextField(blank=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
+    consent = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
@@ -97,6 +99,7 @@ class InstitutionFormation(models.Model):
     description = models.TextField(blank=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
+    consent = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     "apps.Postulations.apps.PostulationsConfig",
     "storages",
     "apps.Notificattions.apps.NotificattionsConfig",
-    "apps.Admin.apps.AdminConfig",
+    # "apps.Admin.apps.AdminConfig",
+    "apps.Profiles.apps.ProfilesConfig",
 ]
 
 MIDDLEWARE = [

@@ -9,6 +9,7 @@ api_urls = [
     path("vacancies/", include("apps.Vacancies.urls")),
     path("notifications/", include("apps.Notificattions.urls")),
     path("admin/", include("apps.Admin.urls")),
+    path("profiles/", include("apps.Profiles.urls")),
 ]
 
 urlpatterns = [path("admin/", admin.site.urls), path("api/", include(api_urls))]

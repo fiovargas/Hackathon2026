@@ -65,7 +65,7 @@ function LoginGeneral() {
     setLoading(true);
     try {
       const { remember: _remember, ...payload } = formData;
-      login(payload);
+      await login(payload);
       navigate('/');
     } catch (error) {
       const data = error.response?.data;
