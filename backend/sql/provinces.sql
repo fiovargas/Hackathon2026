@@ -1,6 +1,6 @@
 -- Provinces (Costa Rica)
 INSERT INTO
-    provinces (id, name)
+    province (id, name)
 VALUES (1, 'San José'),
     (2, 'Alajuela'),
     (3, 'Cartago'),
@@ -12,7 +12,7 @@ ON CONFLICT (id) DO NOTHING;
 
 -- Cantons (Costa Rica) - FK: cantons.province_id -> provinces.id
 INSERT INTO
-    cantons (id, province_id, name)
+    canton (id, province_id, name)
 VALUES (1, 1, 'San José'),
     (2, 1, 'Escazú'),
     (3, 1, 'Desamparados'),

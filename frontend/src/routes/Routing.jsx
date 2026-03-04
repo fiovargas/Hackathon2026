@@ -8,6 +8,7 @@ import ListadoUsuarios from '../pages/ListadoUsuarios';
 import Navbar from '../components/LandingPage/Navbar';
 import Footer from '../components/LandingPage/Footer';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
+import AdminPermision from './AdminPermision';
 
 function Routing() {
   return (
@@ -22,8 +23,10 @@ function Routing() {
         <Route path='/register/companies' element={<RegisterEmpresas />} />
         <Route path='/ListadoUsuarios' element={<ListadoUsuarios />} />
 
-        {/* Admin */}
-        <Route path='/admin' element={<AdminDashboard />} />
+        {/* Rutas Admin (rol id === 1) */}
+        <Route element={<AdminPermision />}>
+          <Route path='/admin' element={<AdminDashboard />} />
+        </Route>
       </Routes>
     </Router>
   );

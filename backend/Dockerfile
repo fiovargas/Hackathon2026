@@ -20,4 +20,8 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
+RUN chmod +x ./entrypoint.sh
+
 EXPOSE 8000
+
+ENTRYPOINT ["sh", "./entrypoint.sh"]
