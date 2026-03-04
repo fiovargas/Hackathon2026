@@ -14,7 +14,6 @@ services:
   backend:
     build: ./backend
     container_name: backend
-    command: bash -c "python manage.py runserver 0.0.0.0:8000"
     ports:
       - "8000:8000"
     environment:

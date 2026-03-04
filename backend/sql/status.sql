@@ -6,7 +6,7 @@ INSERT INTO availability_status (id, name, is_available) VALUES
 ON CONFLICT (id) DO NOTHING;
 
 
-INSERT INTO status_postulations (id, name) VALUES
+INSERT INTO postulation_status (id, name) VALUES
   (1, 'pendiente'),
   (2, 'leída'),
   (3, 'aceptada'),
