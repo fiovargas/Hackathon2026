@@ -1,0 +1,200 @@
+backend  |     )
+backend  |     ^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+backend  |     return executor(sql, params, many, context)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 100, in _execute
+backend  |     with self.db.wrap_database_errors:
+backend  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+backend  |     raise dj_exc_value.with_traceback(traceback) from exc_value
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | django.db.utils.ProgrammingError: relation "user" does not exist
+backend  | LINE 1: ...r", "user"."created_at", "user"."updated_at" FROM "user" WHE...
+backend  |                                                              ^
+backend  | 
+backend  | [03/Mar/2026 21:23:37] "GET /api/auth/me/ HTTP/1.1" 500 176785
+backend  | Internal Server Error: /api/auth/me/
+backend  | Traceback (most recent call last):
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | psycopg2.errors.UndefinedTable: relation "user" does not exist
+backend  | LINE 1: ...r", "user"."created_at", "user"."updated_at" FROM "user" WHE...
+backend  |                                                              ^
+backend  | 
+backend  | 
+backend  | The above exception was the direct cause of the following exception:
+backend  | 
+backend  | Traceback (most recent call last):
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+backend  |     response = get_response(request)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+backend  |     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+backend  |     return view_func(request, *args, **kwargs)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+backend  |     return self.dispatch(request, *args, **kwargs)
+backend  |            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+backend  |     response = self.handle_exception(exc)
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+backend  |     self.raise_uncaught_exception(exc)
+backend  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+backend  |     raise exc
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 503, in dispatch
+backend  |     self.initial(request, *args, **kwargs)
+backend  |     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 420, in initial
+backend  |     self.perform_authentication(request)
+backend  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 330, in perform_authentication
+backend  |     request.user
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/request.py", line 232, in user
+backend  |     self._authenticate()
+backend  |     ~~~~~~~~~~~~~~~~~~^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/request.py", line 385, in _authenticate
+backend  |     user_auth_tuple = authenticator.authenticate(self)
+backend  |   File "/app/apps/authentication/authenticator.py", line 36, in authenticate
+backend  |     entity = get_entity(entity_type, entity_id)
+backend  |   File "/app/apps/authentication/authenticator.py", line 18, in get_entity
+backend  |     return model.objects.get(id=entity_id, is_active=True)
+backend  |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+backend  |     return getattr(self.get_queryset(), name)(*args, **kwargs)
+backend  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 629, in get
+backend  |     num = len(clone)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 366, in __len__
+backend  |     self._fetch_all()
+backend  |     ~~~~~~~~~~~~~~~^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+backend  |     self._result_cache = list(self._iterable_class(self))
+backend  |                          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 91, in __iter__
+backend  |     results = compiler.execute_sql(
+backend  |         chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+backend  |     )
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+backend  |     cursor.execute(sql, params)
+backend  |     ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 122, in execute
+backend  |     return super().execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 79, in execute
+backend  |     return self._execute_with_wrappers(
+backend  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+backend  |         sql, params, many=False, executor=self._execute
+backend  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |     )
+backend  |     ^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+backend  |     return executor(sql, params, many, context)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 100, in _execute
+backend  |     with self.db.wrap_database_errors:
+backend  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+backend  |     raise dj_exc_value.with_traceback(traceback) from exc_value
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | django.db.utils.ProgrammingError: relation "user" does not exist
+backend  | LINE 1: ...r", "user"."created_at", "user"."updated_at" FROM "user" WHE...
+backend  |                                                              ^
+backend  | 
+backend  | [03/Mar/2026 21:23:57] "GET /api/auth/me/ HTTP/1.1" 500 176785
+backend  | Internal Server Error: /api/auth/me/
+backend  | Traceback (most recent call last):
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | psycopg2.errors.UndefinedTable: relation "user" does not exist
+backend  | LINE 1: ...r", "user"."created_at", "user"."updated_at" FROM "user" WHE...
+backend  |                                                              ^
+backend  | 
+backend  | 
+backend  | The above exception was the direct cause of the following exception:
+backend  | 
+backend  | Traceback (most recent call last):
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+backend  |     response = get_response(request)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+backend  |     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+backend  |     return view_func(request, *args, **kwargs)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+backend  |     return self.dispatch(request, *args, **kwargs)
+backend  |            ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+backend  |     response = self.handle_exception(exc)
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+backend  |     self.raise_uncaught_exception(exc)
+backend  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+backend  |     raise exc
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 503, in dispatch
+backend  |     self.initial(request, *args, **kwargs)
+backend  |     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 420, in initial
+backend  |     self.perform_authentication(request)
+backend  |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/views.py", line 330, in perform_authentication
+backend  |     request.user
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/request.py", line 232, in user
+backend  |     self._authenticate()
+backend  |     ~~~~~~~~~~~~~~~~~~^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/rest_framework/request.py", line 385, in _authenticate
+backend  |     user_auth_tuple = authenticator.authenticate(self)
+backend  |   File "/app/apps/authentication/authenticator.py", line 36, in authenticate
+backend  |     entity = get_entity(entity_type, entity_id)
+backend  |   File "/app/apps/authentication/authenticator.py", line 18, in get_entity
+backend  |     return model.objects.get(id=entity_id, is_active=True)
+backend  |            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/manager.py", line 87, in manager_method
+backend  |     return getattr(self.get_queryset(), name)(*args, **kwargs)
+backend  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 629, in get
+backend  |     num = len(clone)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 366, in __len__
+backend  |     self._fetch_all()
+backend  |     ~~~~~~~~~~~~~~~^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 1945, in _fetch_all
+backend  |     self._result_cache = list(self._iterable_class(self))
+backend  |                          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/query.py", line 91, in __iter__
+backend  |     results = compiler.execute_sql(
+backend  |         chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+backend  |     )
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+backend  |     cursor.execute(sql, params)
+backend  |     ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 122, in execute
+backend  |     return super().execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 79, in execute
+backend  |     return self._execute_with_wrappers(
+backend  |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+backend  |         sql, params, many=False, executor=self._execute
+backend  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |     )
+backend  |     ^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+backend  |     return executor(sql, params, many, context)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 100, in _execute
+backend  |     with self.db.wrap_database_errors:
+backend  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+backend  |     raise dj_exc_value.with_traceback(traceback) from exc_value
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | django.db.utils.ProgrammingError: relation "user" does not exist
+backend  | LINE 1: ...r", "user"."created_at", "user"."updated_at" FROM "user" WHE...
+backend  |                                                              ^
+backend  | 
+backend  | [03/Mar/2026 21:23:57] "GET /api/auth/me/ HTTP/1.1" 500 176785
+backend  | [03/Mar/2026 21:24:02] "OPTIONS /api/auth/approve-company/1/ HTTP/1.1" 200 0
+backend  | Not Found: /api/auth/approve-company/1/
+backend  | [03/Mar/2026 21:24:02] "POST /api/auth/approve-company/1/ HTTP/1.1" 404 7651

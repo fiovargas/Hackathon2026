@@ -7,6 +7,7 @@ import RegistroEstudiantes from '../pages/RegistroEstudiantes';
 import ListadoUsuarios from '../pages/ListadoUsuarios';
 import Navbar from '../components/LandingPage/Navbar';
 import Footer from '../components/LandingPage/Footer';
+import AdminDashboard from '../pages/Admin/AdminDashboard';
 
 function Routing() {
   return (
@@ -20,6 +21,9 @@ function Routing() {
         <Route path='/login' element={<Login />} />
         <Route path='/register/companies' element={<RegisterEmpresas />} />
         <Route path='/ListadoUsuarios' element={<ListadoUsuarios />} />
+
+        {/* Admin */}
+        <Route path='/admin' element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
