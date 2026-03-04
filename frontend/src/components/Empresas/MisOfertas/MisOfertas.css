@@ -75,14 +75,14 @@
 }
 
 .filtro-btn:hover {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #7AAC21;
+  color: #7AAC21;
 }
 
 .filtro-btn.activo {
-  background: #d4af37;
+  background: #7AAC21;
   color: white;
-  border-color: #d4af37;
+  border-color: #7AAC21;
 }
 
 .vista-toggle {
@@ -106,14 +106,14 @@
 }
 
 .toggle-btn:hover {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #7AAC21;
+  color: #7AAC21;
 }
 
 .toggle-btn.activo {
-  background: #d4af37;
+  background: #7AAC21;
   color: white;
-  border-color: #d4af37;
+  border-color: #7AAC21;
 }
 
 /* Contenido */
@@ -232,7 +232,7 @@
 .stat-numero {
   font-size: 20px;
   font-weight: 700;
-  color: #d4af37;
+  color: #7AAC21;
 }
 
 .stat-label {
@@ -370,7 +370,7 @@
 .tabla-ofertas .numero {
   text-align: center;
   font-weight: 600;
-  color: #d4af37;
+  color: #7AAC21;
 }
 
 .tabla-ofertas .fecha {
@@ -456,60 +456,42 @@
 @media (max-width: 1024px) {
   .mis-ofertas-container {
     padding: 15px 20px;
-    margin-left: 80px;
   }
 
   .ofertas-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
   }
 
   .vista-grid .ofertas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-
-  .accion-btn span {
-    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .mis-ofertas-container {
-    padding: 15px 15px;
-    margin-left: 200px;
+    padding: 15px;
   }
 
   .ofertas-header {
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
 
   .btn-publicar {
-    padding: 10px 16px;
-    font-size: 12px;
+    width: 100%;
+    justify-content: center;
   }
 
   .vista-grid .ofertas-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tabla-ofertas th:nth-child(n+4) {
-    display: none;
-  }
-
-  .tabla-ofertas td:nth-child(n+4) {
-    display: none;
-  }
-
-  .accion-btn span {
-    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .mis-ofertas-container {
     padding: 10px;
-    margin-left: 0;
-    margin-top: 70px;
   }
 
   .ofertas-header {

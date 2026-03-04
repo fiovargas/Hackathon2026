@@ -52,12 +52,12 @@
 
 .filtro-btn:hover,
 .ver-todas-btn:hover {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #7AAC21;
+  color: #7AAC21;
 }
 
 .ver-todas-btn {
-  color: #d4af37;
+  color: #7AAC21;
 }
 
 /* Filtros rápidos */
@@ -84,14 +84,14 @@
 }
 
 .filtro-rapido:hover {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #7AAC21;
+  color: #7AAC21;
 }
 
 .filtro-rapido.activo {
-  background: #d4af37;
+  background: #7AAC21;
   color: white;
-  border-color: #d4af37;
+  border-color: #7AAC21;
 }
 
 /* Tabla */
@@ -157,7 +157,7 @@
   cursor: pointer;
   width: 16px;
   height: 16px;
-  accent-color: #d4af37;
+  accent-color: #7AAC21;
 }
 
 /* Candidato Cell */
@@ -342,8 +342,8 @@
 }
 
 .paginacion-btn:hover:not(:disabled) {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #7AAC21;
+  color: #7AAC21;
 }
 
 .paginacion-btn:disabled {
