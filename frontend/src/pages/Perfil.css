@@ -1,0 +1,254 @@
+/* =================== PERFIL PAGE =================== */
+.perfil-page {
+  min-height: 100vh;
+  background: #f8faf9;
+  padding: 40px 16px;
+}
+
+.perfil-container {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.perfil-page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.perfil-page-header p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Avatar card */
+.perfil-avatar-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.perfil-avatar-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.perfil-role-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  background: #007ba7;
+  padding: 2px 12px;
+  border-radius: 999px;
+}
+
+/* Form card */
+.perfil-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+}
+
+/* =================== FORM INNER =================== */
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.perfil-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.perfil-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 2px;
+}
+.perfil-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Edit / Cancel button */
+.perfil-btn-edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid #7aac21;
+  background: transparent;
+  color: #7aac21;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.perfil-btn-edit:hover {
+  background: #7aac21;
+  color: #fff;
+}
+.perfil-btn-edit.cancel {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+.perfil-btn-edit.cancel:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* Save button */
+.perfil-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.perfil-btn-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #7aac21;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.perfil-btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.perfil-btn-save:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+/* Grid de campos */
+.perfil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.perfil-grid-1 {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 520px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Campo individual */
+.campo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.campo-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.campo-input {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #1a1a1a;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.campo-input:focus {
+  border-color: #7aac21;
+}
+.campo-input.disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: default;
+}
+.campo-textarea {
+  resize: vertical;
+}
+
+/* Checkbox row */
+.perfil-check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.perfil-checkbox {
+  accent-color: #7aac21;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.perfil-check-label {
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* Error */
+.perfil-error {
+  font-size: 13px;
+  color: #ef4444;
+  background: #fef2f2;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 0;
+}
+
+/* Loading */
+.perfil-loading {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+}
+.perfil-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #7aac21;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

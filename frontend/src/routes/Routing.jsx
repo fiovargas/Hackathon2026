@@ -9,6 +9,7 @@ import Navbar from '../components/LandingPage/Navbar';
 import Footer from '../components/LandingPage/Footer';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 import Empresas from '../pages/Empresas';
+import Perfil from '../pages/Perfil';
 import AdminPermision from './AdminPermision';
 
 function Routing() {
@@ -24,6 +25,7 @@ function Routing() {
 
         {/* Admin */}
         <Route path='/Empresas' element={<Empresas />} />
+        <Route path='/perfil' element={<Perfil />} />
         {/* Rutas Admin (rol id === 1) */}
         <Route element={<AdminPermision />}>
           <Route path='/admin' element={<AdminDashboard />} />

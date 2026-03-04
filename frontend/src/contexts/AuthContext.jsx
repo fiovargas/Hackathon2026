@@ -14,6 +14,7 @@ export const AuthContext = createContext({
   user: null,
   login: async () => {},
   logout: async () => {},
+  refreshUser: async () => {},
   isLoading: true,
   isAuthenticated: false,
 });
@@ -74,9 +75,15 @@ export const AuthContextProvider = ({ children }) => {
     }
   }, []);
 
+  // Refresca el usuario en el contexto tras actualizaciones de perfil
+  const refreshUser = useCallback(async () => {
+    const userData = await auth.getUser();
+    setUser(userData);
+  }, []);
+
   const values = useMemo(
-    () => ({ user, login, logout, isLoading, isAuthenticated }),
-    [user, login, logout, isLoading, isAuthenticated],
+    () => ({ user, login, logout, refreshUser, isLoading, isAuthenticated }),
+    [user, login, logout, refreshUser, isLoading, isAuthenticated],
   );
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
