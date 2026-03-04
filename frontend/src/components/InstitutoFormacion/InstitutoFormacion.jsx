@@ -66,9 +66,39 @@ const InstitutoFormacion = () => {
   // ✏️ Editar estudiante (simulación)
     const handleEdit = (student) => {
     Swal.fire({
-        icon: "info",
         title: "Editar usuario",
-        text: `Editar datos de ${student.name} ${student.last_name}`,
+        html: `
+        <input id="swal-name" class="swal2-input" placeholder="Nombre" value="${student.name}">
+        <input id="swal-lastname" class="swal2-input" placeholder="Apellido" value="${student.last_name}">
+        <input id="swal-email" class="swal2-input" placeholder="Correo" value="${student.email}">
+        <input id="swal-phone" class="swal2-input" placeholder="Teléfono" value="${student.phone}">
+        <input id="swal-image" class="swal2-input" placeholder="URL Imagen" value="${student.image_url}">
+        `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: "Guardar cambios",
+        cancelButtonText: "Cancelar",
+        preConfirm: () => {
+        return {
+            name: document.getElementById("swal-name").value,
+            last_name: document.getElementById("swal-lastname").value,
+            email: document.getElementById("swal-email").value,
+            phone: document.getElementById("swal-phone").value,
+            image_url: document.getElementById("swal-image").value,
+        };
+        },
+    }).then((result) => {
+        if (result.isConfirmed) {
+        setStudents((prev) =>
+            prev.map((s) =>
+            s.id === student.id
+                ? { ...s, ...result.value }
+                : s
+            )
+        );
+
+        Swal.fire("Actualizado", "Los datos fueron modificados", "success");
+        }
     });
     };
 

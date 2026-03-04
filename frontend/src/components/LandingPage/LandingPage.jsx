@@ -55,10 +55,10 @@ const LandingPage = () => {
       <section className="stats-section">
         <div className="stats-grid">
           {[
-            { label: 'estudiantes u operarios', value: '+2000' },
-            { label: 'empresas de alto nivel', value: '+30' },
-            { label: 'contrataciones exitosas', value: '+800' },
-            { label: 'horas de aprendizaje', value: '+15000' },
+            { label: 'Firmas de industria MedTech', value: '12' },
+            { label: 'empresas de alto nivel', value: '+15' },
+            { label: 'Empleos generados', value: '8.500' },
+            { label: 'Del talento humano reside en Cartago', value: '85%' },
           ].map((stat, i) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
