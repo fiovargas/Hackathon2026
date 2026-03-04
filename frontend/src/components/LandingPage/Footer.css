@@ -1,8 +1,8 @@
 .footer {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: var(--dark-text, #1A1A1A);
+  color: #CBD5E1;
   padding: 60px 20px;
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-container {
@@ -35,7 +35,7 @@
 .logo-box {
   width: 32px;
   height: 32px;
-  background-color: #4f46e5;
+  background-color: var(--primary-green, #7AAC21);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,17 +58,17 @@
 }
 
 .footer a {
-  color: #94a3b8;
+  color: #CBD5E1;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .footer a:hover {
-  color: white;
+  color: var(--primary-green, #7AAC21);
 }
 
 .footer-bottom {
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
   display: flex;
   justify-content: space-between;
