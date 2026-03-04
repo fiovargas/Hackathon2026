@@ -68,9 +68,10 @@ function LoginGeneral() {
     try {
       const { remember: _remember, ...payload } = formData;
       await login(payload);
-      navigate('/Pasantias');
+      navigate('/');
     } catch (error) {
       const data = error.response?.data;
+      
       setServerError(
         data?.detail ||
           'Email/teléfono o contraseña incorrectos. Intenta de nuevo.',
