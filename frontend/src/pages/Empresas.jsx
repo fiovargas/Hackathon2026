@@ -37,8 +37,8 @@ function Empresas() {
           </>
         )}
 
-        {/* Mis Ofertas */}
-        {activeSection === 'ofertas' && (
+        {/* Vacantes */}
+        {activeSection === 'vacantes' && (
           <MisOfertas />
         )}
 

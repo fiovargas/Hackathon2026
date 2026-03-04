@@ -1,6 +1,7 @@
 import React from 'react';
 import './SidebarEmpresas.css';
 import { Menu, X, Home, Briefcase, Users, User, Settings, LogOut } from 'lucide-react';
+import nexternLogo from '../../../assets/NexternLogo.png';
 
 function SidebarEmpresas({ activeSection, setActiveSection, isOpen, setIsOpen }) {
   const toggleSidebar = () => {
@@ -9,7 +10,7 @@ function SidebarEmpresas({ activeSection, setActiveSection, isOpen, setIsOpen })
 
   const menuItems = [
     { id: 'dashboard', label: 'Panel de Control', icon: Home },
-    { id: 'ofertas', label: 'Mis Ofertas', icon: Briefcase },
+    { id: 'vacantes', label: 'Vacantes', icon: Briefcase },
     { id: 'candidatos', label: 'Candidatos', icon: Users },
     { id: 'perfil', label: 'Perfil de Empresa', icon: User },
     { id: 'configuracion', label: 'Configuración', icon: Settings },
@@ -21,7 +22,9 @@ function SidebarEmpresas({ activeSection, setActiveSection, isOpen, setIsOpen })
         {/* Header del Sidebar */}
         <div className="sidebar-header">
           <div className="sidebar-brand">
-            <div className="brand-avatar">N</div>
+            <div className="brand-avatar">
+              <img src={nexternLogo} alt="Nextern" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }} />
+            </div>
             <div className={`brand-info ${!isOpen ? 'hidden' : ''}`}>
               <h3>Nextern Costa Rica</h3>
               <p>Dispositivos Médicos</p>

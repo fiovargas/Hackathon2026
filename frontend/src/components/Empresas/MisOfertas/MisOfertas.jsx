@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './MisOfertas.css';
 import { Edit2, X, Eye, Download, Users } from 'lucide-react';
-import FormularioVacante from '../FormularioVacante/FormularioVacante'; 
+import FormularioVacante from '../FormularioVacante/FormularioVacante';
 
 function MisOfertas() {
   const [ofertas, setOfertas] = useState([
@@ -67,8 +67,8 @@ function MisOfertas() {
   const [ofertaEditando, setOfertaEditando] = useState(null);
   const [vistaActual, setVistaActual] = useState('grid');
 
-  const ofertasFiltradas = filtroEstado === 'todas' 
-    ? ofertas 
+  const ofertasFiltradas = filtroEstado === 'todas'
+    ? ofertas
     : ofertas.filter(o => o.estado === filtroEstado);
 
   const handleAbrirFormulario = (oferta = null) => {
@@ -133,11 +133,11 @@ function MisOfertas() {
       {/* Header */}
       <div className="ofertas-header">
         <div className="ofertas-titulo">
-          <h2>Mis Ofertas</h2>
-          <p className="contador">{ofertasFiltradas.length} oferta{ofertasFiltradas.length !== 1 ? 's' : ''}</p>
+          <h2>Vacantes</h2>
+          <p className="contador">{ofertasFiltradas.length} vacante{ofertasFiltradas.length !== 1 ? 's' : ''}</p>
         </div>
         <button className="btn-publicar" onClick={() => handleAbrirFormulario()}>
-          + Publicar Nueva Oferta
+          + Publicar Nueva Vacante
         </button>
       </div>
 
@@ -158,14 +158,14 @@ function MisOfertas() {
         </div>
 
         <div className="vista-toggle">
-          <button 
+          <button
             className={`toggle-btn ${vistaActual === 'grid' ? 'activo' : ''}`}
             onClick={() => setVistaActual('grid')}
             title="Vista de Grid"
           >
             ⊞
           </button>
-          <button 
+          <button
             className={`toggle-btn ${vistaActual === 'lista' ? 'activo' : ''}`}
             onClick={() => setVistaActual('lista')}
             title="Vista de Lista"
@@ -192,7 +192,7 @@ function MisOfertas() {
                   <div className="oferta-content">
                     <h3>{oferta.titulo}</h3>
                     <p className="area">{oferta.area}</p>
-                    
+
                     <div className="oferta-details">
                       <span className="detail">
                         <strong>{oferta.modalidad}</strong>
@@ -218,7 +218,7 @@ function MisOfertas() {
 
                   {/* Acciones */}
                   <div className="oferta-acciones">
-                    <button 
+                    <button
                       className="accion-btn ver"
                       title="Ver postulantes"
                       onClick={() => handleVerPostulantes(oferta.id)}
@@ -226,14 +226,14 @@ function MisOfertas() {
                       <Users size={16} />
                       <span>Ver ({oferta.postulaciones})</span>
                     </button>
-                    <button 
+                    <button
                       className="accion-btn descargar"
                       title="Descargar postulantes"
                       onClick={() => handleDescargarPostulantes(oferta.id)}
                     >
                       <Download size={16} />
                     </button>
-                    <button 
+                    <button
                       className="accion-btn editar"
                       title="Editar"
                       onClick={() => handleAbrirFormulario(oferta)}
@@ -241,7 +241,7 @@ function MisOfertas() {
                       <Edit2 size={16} />
                     </button>
                     {oferta.estado === 'activa' ? (
-                      <button 
+                      <button
                         className="accion-btn cerrar"
                         title="Cerrar oferta"
                         onClick={() => handleCerrarOferta(oferta.id)}
@@ -249,7 +249,7 @@ function MisOfertas() {
                         <X size={16} />
                       </button>
                     ) : (
-                      <button 
+                      <button
                         className="accion-btn eliminar"
                         title="Eliminar"
                         onClick={() => handleEliminarOferta(oferta.id)}
@@ -293,32 +293,32 @@ function MisOfertas() {
                       <td className="fecha">{new Date(oferta.fechaPublicacion).toLocaleDateString()}</td>
                       <td>
                         <div className="tabla-acciones">
-                          <button 
+                          <button
                             className="accion-mini"
                             title="Ver postulantes"
                             onClick={() => handleVerPostulantes(oferta.id)}
                           >
                             <Users size={14} />
                           </button>
-                          <button 
+                          <button
                             className="accion-mini"
                             title="Descargar"
                             onClick={() => handleDescargarPostulantes(oferta.id)}
                           >
                             <Download size={14} />
                           </button>
-                          <button 
+                          <button
                             className="accion-mini"
                             title="Editar"
                             onClick={() => handleAbrirFormulario(oferta)}
                           >
                             <Edit2 size={14} />
                           </button>
-                          <button 
+                          <button
                             className="accion-mini"
                             title={oferta.estado === 'activa' ? 'Cerrar' : 'Eliminar'}
-                            onClick={() => oferta.estado === 'activa' 
-                              ? handleCerrarOferta(oferta.id) 
+                            onClick={() => oferta.estado === 'activa'
+                              ? handleCerrarOferta(oferta.id)
                               : handleEliminarOferta(oferta.id)}
                           >
                             {oferta.estado === 'activa' ? <X size={14} /> : '🗑️'}
@@ -337,13 +337,13 @@ function MisOfertas() {
           <div className="sin-ofertas-content">
             <p className="sin-ofertas-titulo">No hay ofertas para mostrar</p>
             <p className="sin-ofertas-desc">
-              {filtroEstado === 'todas' 
-                ? 'Comienza publicando tu primera vacante' 
-                : `No hay ofertas ${filtroEstado}`}
+              {filtroEstado === 'todas'
+                ? 'Comienza publicando tu primera vacante'
+                : `No hay vacantes ${filtroEstado}`}
             </p>
             {filtroEstado === 'todas' && (
               <button className="btn-publicar-grande" onClick={() => handleAbrirFormulario()}>
-                + Publicar Primera Oferta
+                + Publicar Primera Vacante
               </button>
             )}
           </div>
@@ -351,7 +351,7 @@ function MisOfertas() {
       )}
 
       {/* Formulario Modal */}
-      <FormularioVacante 
+      <FormularioVacante
         isOpen={formularioAberto}
         onClose={handleCerrarFormulario}
         onSave={handleGuardarOferta}

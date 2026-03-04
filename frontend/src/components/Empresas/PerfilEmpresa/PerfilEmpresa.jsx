@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './PerfilEmpresa.css';
 import { Edit2, Save, X, Upload, Mail, Phone, MapPin, Globe, Users } from 'lucide-react';
+import nexternLogo from '../../../assets/NexternLogo.png';
 
 function PerfilEmpresa() {
   const [isEditing, setIsEditing] = useState(false);
@@ -50,7 +51,7 @@ function PerfilEmpresa() {
           <h1>Perfil de Empresa</h1>
           <p>Administra la información de tu empresa</p>
         </div>
-        <button 
+        <button
           className={`btn-edit ${isEditing ? 'editing' : ''}`}
           onClick={isEditing ? handleCancel : handleEdit}
         >
@@ -73,7 +74,7 @@ function PerfilEmpresa() {
         <div className="perfil-section">
           <div className="logo-section">
             <div className="logo-placeholder">
-              <Users size={48} />
+              <img src={nexternLogo} alt="Logo Empresa" className="perfil-logo-img" />
             </div>
             {isEditing && (
               <button className="btn-upload">

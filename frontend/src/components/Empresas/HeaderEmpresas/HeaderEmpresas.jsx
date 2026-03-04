@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './HeaderEmpresas.css';
 import { Search, Bell, User } from 'lucide-react';
+import logoLima from '../../../assets/LogoLima.png';
 
 function HeaderEmpresas({ onSearch, isSidebarOpen }) {
   const [searchValue, setSearchValue] = useState('');
@@ -23,10 +24,7 @@ function HeaderEmpresas({ onSearch, isSidebarOpen }) {
         {/* Logo y Título */}
         <div className="header-brand">
           <div className="brand-logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7V12C2 18.627 7.373 24 12 24C16.627 24 22 18.627 22 12V7L12 2Z"
-                stroke="#1a2d4d" strokeWidth="1.5" fill="none" />
-            </svg>
+            <img src={logoLima} alt="La Lima" />
           </div>
           <div className="brand-text">
             <h1>Bolsa de Empleo</h1>
