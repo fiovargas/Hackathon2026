@@ -1,0 +1,323 @@
+/* ===== LAYOUT PRINCIPAL ===== */
+.vacantes-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8faf9;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.vacantes-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 32px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 28px;
+}
+
+.sidebar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 12px;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.sidebar-item:hover {
+  background-color: #f3f4f6;
+}
+
+.sidebar-item--active {
+  background-color: #ebf5d6;
+  color: #4a7a0d;
+  font-weight: 600;
+}
+
+.sidebar-clear-btn {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.sidebar-clear-btn:hover {
+  background-color: #f3f4f6;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+.vacantes-main {
+  flex: 1;
+  padding: 40px 36px;
+  min-width: 0;
+}
+
+.vacantes-header {
+  margin-bottom: 28px;
+}
+
+.vacantes-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.vacantes-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ===== GRID ===== */
+.vacantes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .vacantes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .vacantes-page {
+    flex-direction: column;
+  }
+
+  .vacantes-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px;
+  }
+
+  .vacantes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== TARJETA ===== */
+.vacante-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.vacante-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+/* ===== ENCABEZADO TARJETA ===== */
+.vacante-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ===== BADGES ===== */
+.vacante-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Tipos */
+.badge--full-time {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge--part-time {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.badge--internship {
+  background-color: #ebf5d6;
+  color: #4a7a0d;
+}
+
+.badge--contract {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+/* Modalidad */
+.badge--presential {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.badge--remote {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge--hybrid {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+/* ===== TEXTOS ===== */
+.vacante-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.vacante-company {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7aac21;
+  margin: 0;
+}
+
+.vacante-location {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.vacante-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== CATEGORÍAS ===== */
+.vacante-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.vacante-category-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== SALARIO ===== */
+.vacante-salary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #007ba7;
+  margin: 0;
+}
+
+/* ===== ENLACE ===== */
+.vacante-link {
+  align-self: flex-start;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #7aac21;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.vacante-link:hover {
+  opacity: 0.88;
+}
+
+/* ===== ESTADOS ===== */
+.vacantes-loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.vacantes-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #7aac21;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vacantes-error,
+.vacantes-empty {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.vacantes-error {
+  color: #b91c1c;
+}

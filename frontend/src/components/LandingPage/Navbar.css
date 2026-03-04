@@ -1,251 +1,273 @@
 /* c:\Users\DELL7\OneDrive\Desktop\Hackathon\Hackathon2026\frontend\src\components\LandingPage\Navbar.css */
 /* Navbar container */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .navbar-container {
-    max-width: 80rem;
-    margin: 0 auto;
-    padding: 0 1rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 @media (min-width: 640px) {
-    .navbar-container {
-        padding: 0 1.5rem;
-    }
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
-    .navbar-container {
-        padding: 0 2rem;
-    }
+  .navbar-container {
+    padding: 0 2rem;
+  }
 }
 
 .navbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
 }
 
 .navbar-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
 }
 
 /* Logo */
 .navbar-icon {
-    width: 80px !important;      /* Ancho más grande */
-    height: 80px !important;     /* Alto más grande */
-    object-fit: contain;         /* Mantiene proporción */
-    display: block;              
-    margin-right: 1rem;          /* Espacio entre logo y texto */
-    border-radius: 0.5rem;       /* Opcional: bordes redondeados */
-    background: none;            /* Elimina fondo negro anterior */
-    color: inherit;              /* Elimina color de letra */
-    font-size: unset;            /* Elimina tamaño de letra */
-    font-weight: unset;          /* Elimina grosor de letra */
+  width: 80px !important; /* Ancho más grande */
+  height: 80px !important; /* Alto más grande */
+  object-fit: contain; /* Mantiene proporción */
+  display: block;
+  margin-right: 1rem; /* Espacio entre logo y texto */
+  border-radius: 0.5rem; /* Opcional: bordes redondeados */
+  background: none; /* Elimina fondo negro anterior */
+  color: inherit; /* Elimina color de letra */
+  font-size: unset; /* Elimina tamaño de letra */
+  font-weight: unset; /* Elimina grosor de letra */
 }
 
 /* Ajuste responsive */
 @media (min-width: 768px) {
-    .navbar-icon {
-        width: 100px !important;
-        height: 100px !important;
-    }
+  .navbar-icon {
+    width: 100px !important;
+    height: 100px !important;
+  }
 }
 
 /* Texto del título */
 .navbar-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #1A1A1A;
-    display: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  display: none;
 }
 
 @media (min-width: 640px) {
-    .navbar-title {
-        display: block;
-    }
+  .navbar-title {
+    display: block;
+  }
 }
 
 .navbar-title-highlight {
-    color: #A9F971;
+  color: #a9f971;
 }
 
 .navbar-desktop-menu {
-    display: none;
-    align-items: center;
-    gap: 2rem;
+  display: none;
+  align-items: center;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
-    .navbar-desktop-menu {
-        display: flex;
-    }
+  .navbar-desktop-menu {
+    display: flex;
+  }
 }
 
 .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link.active {
-    color: #7AAC21;
+  color: #7aac21;
 }
 
 .nav-link.inactive {
-    color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .nav-link.inactive:hover {
-    color: #7AAC21;
+  color: #7aac21;
 }
 
 .navbar-divider {
-    height: 1.5rem;
-    width: 1px;
-    background-color: #e2e8f0;
-    margin: 0 0.5rem;
+  height: 1.5rem;
+  width: 1px;
+  background-color: #e2e8f0;
+  margin: 0 0.5rem;
 }
 
 .nav-login-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    background-color: #1A1A1A;
-    color: #FFFFFF;
-    padding: 0.6rem 1.25rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
 }
 
 .nav-login-btn:hover {
-    background-color: #7AAC21;
-    color: #FFFFFF;
-    transform: translateY(-1px);
+  background-color: #7aac21;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav-admin-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #ebf5d6;
+  color: #4a7a0d;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #c3e08a;
+  transition: all 0.2s;
+}
+
+.nav-admin-btn:hover {
+  background-color: #7aac21;
+  color: #fff;
+  border-color: #7aac21;
+  transform: translateY(-1px);
 }
 
 .nav-btn-icon {
-    padding: 0.6rem;
-    border-radius: 50%;
-    background-color: #f1f5f9;
-    color: #1A1A1A;
-    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0.6rem;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  color: #1a1a1a;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-btn-icon:hover {
-    background-color: #A9F971;
-    color: #1A1A1A;
+  background-color: #a9f971;
+  color: #1a1a1a;
 }
 
 .navbar-mobile-toggle {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
-    .navbar-mobile-toggle {
-        display: none;
-    }
+  .navbar-mobile-toggle {
+    display: none;
+  }
 }
 
 .mobile-toggle-btn {
-    color: #1A1A1A;
-    padding: 0.5rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: color 150ms;
+  color: #1a1a1a;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 150ms;
 }
 
 .mobile-toggle-btn:hover {
-    color: #7AAC21;
+  color: #7aac21;
 }
 
 .mobile-menu {
-    background-color: #FFFFFF;
-    border-bottom: 1px solid #e2e8f0;
-    overflow: hidden;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
-    .mobile-menu {
-        display: none;
-    }
+  .mobile-menu {
+    display: none;
+  }
 }
 
 .mobile-menu-inner {
-    padding: 0.5rem 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  padding: 0.5rem 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .mobile-nav-link {
-    display: block;
-    padding: 0.75rem 1rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 150ms;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 150ms;
 }
 
 .mobile-nav-link.active {
-    background-color: rgba(122, 172, 33, 0.1);
-    color: #7AAC21;
+  background-color: rgba(122, 172, 33, 0.1);
+  color: #7aac21;
 }
 
 .mobile-nav-link.inactive {
-    color: #1A1A1A;
+  color: #1a1a1a;
 }
 
 .mobile-nav-link.inactive:hover {
-    background-color: #f8fafc;
-    color: #7AAC21;
+  background-color: #f8fafc;
+  color: #7aac21;
 }
 
 .mobile-menu-divider {
-    padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .mobile-login-btn {
-    text-align: center;
-    background-color: #1A1A1A;
-    color: #FFFFFF !important;
-    font-weight: 600;
+  text-align: center;
+  background-color: #1a1a1a;
+  color: #ffffff !important;
+  font-weight: 600;
 }
 
 .mobile-login-btn:hover {
-    background-color: #7AAC21;
+  background-color: #7aac21;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { postData } from '../../../services/api';
@@ -120,7 +120,19 @@ const FormRegisterEstudiantes = () => {
       cardClassName='register-card'
       title='Crear Cuenta'
       titleClassName='register-title'
-      subtitle='Completa tus datos para empezar'
+      subtitle={
+        <>
+          ¿Ya tienes cuenta?{' '}
+          <Link to='/login' className='register-link'>
+            Inicia sesión
+          </Link>
+          {' · '}
+          ¿Empresa o institución?{' '}
+          <Link to='/register/companies' className='register-link'>
+            Regístrate aquí
+          </Link>
+        </>
+      }
       subtitleClassName='register-subtitle'
       formClassName='register-form'
       onSubmit={handleSubmit}
@@ -130,13 +142,22 @@ const FormRegisterEstudiantes = () => {
             <span>O registrarse con</span>
           </div>
           <div className='zfll-social-logins'>
-            <button type='button' className='zfll-social-btn zfll-social-google'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-google'
+            >
               <FcGoogle className='zfll-social-icon' />
             </button>
-            <button type='button' className='zfll-social-btn zfll-social-facebook'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-facebook'
+            >
               <FaFacebook className='zfll-social-icon' />
             </button>
-            <button type='button' className='zfll-social-btn zfll-social-instagram'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-instagram'
+            >
               <FaInstagram className='zfll-social-icon' />
             </button>
           </div>

@@ -9,6 +9,7 @@ import AdminDashboard from '../pages/Admin/AdminDashboard';
 import Empresas from '../pages/Empresas';
 import Perfil from '../pages/Perfil';
 import DirectorioEmpresas from '../pages/DirectorioEmpresas';
+import DirectorioVacantes from '../pages/DirectorioVacantes';
 import AdminPermision from './AdminPermision';
 import InstitutionRoute from './InstitutionRoute';
 import PrivateRoute from './PrivateRoute';
@@ -28,6 +29,7 @@ function Routing() {
         <Route element={<PrivateRoute />}>
           <Route path='/perfil' element={<Perfil />} />
           <Route path='/directorio' element={<DirectorioEmpresas />} />
+          <Route path='/Pasantias' element={<DirectorioVacantes />} />
         </Route>
 
         {/* Rutas Institución de formación (rol id === 5) */}

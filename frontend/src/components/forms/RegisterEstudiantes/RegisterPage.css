@@ -30,6 +30,16 @@
   margin-bottom: 2rem;
 }
 
+.register-link {
+  color: #7aac21;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;

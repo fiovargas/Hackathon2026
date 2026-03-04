@@ -1,9 +1,11 @@
+from django.contrib.auth.hashers import make_password
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from apps.authentication.models import AvailabilityStatus, Role
+from apps.authentication.models import AvailabilityStatus, Company, Role
 from apps.common.models import Canton, Category, Currency, Province, Requirement
 from apps.Postulations.models import PostulationStatus
+from apps.Vacancies.models import Vacancy, VacancyCategory
 
 
 ROLES = [
@@ -425,6 +427,334 @@ REQUIREMENTS = [
 ]
 
 
+SEED_COMPANIES = [
+    {
+        "email": "techcr@seed.dev",
+        "name": "TechCR Solutions",
+        "description": "Empresa costarricense especializada en desarrollo de software a medida, APIs y soluciones web escalables para startups y empresas medianas.",
+    },
+    {
+        "email": "datasoft@seed.dev",
+        "name": "DataSoft CR",
+        "description": "Consultora de datos e inteligencia de negocios. Ayudamos a empresas a tomar decisiones basadas en datos con Power BI, SQL y análisis avanzado.",
+    },
+    {
+        "email": "cloudlabs@seed.dev",
+        "name": "CloudLabs Costa Rica",
+        "description": "Proveedor de servicios de infraestructura cloud, DevOps y automatización de despliegues sobre AWS, GCP y Azure.",
+    },
+    {
+        "email": "innovadesign@seed.dev",
+        "name": "InnovaDesign CR",
+        "description": "Agencia de diseño UX/UI centrada en el usuario. Creamos interfaces digitales intuitivas y sistemas de diseño para productos web y móviles.",
+    },
+    {
+        "email": "finanzascr@seed.dev",
+        "name": "FinanzasCR",
+        "description": "Firma de consultoría financiera y contable que apoya a Pymes en presupuestación, análisis financiero y cumplimiento tributario.",
+    },
+    {
+        "email": "marketingpro@seed.dev",
+        "name": "MarketingPro CR",
+        "description": "Agencia de marketing digital enfocada en SEO, campañas pagadas (Meta/Google), estrategia de contenido y crecimiento orgánico.",
+    },
+    {
+        "email": "logiscr@seed.dev",
+        "name": "LogisCR",
+        "description": "Empresa de logística y cadena de suministro con operaciones en toda Costa Rica. Gestión de inventario, distribución y transporte.",
+    },
+    {
+        "email": "talentocr@seed.dev",
+        "name": "TalentoHumano CR",
+        "description": "Consultoría de recursos humanos especializada en reclutamiento, onboarding, gestión de desempeño y cultura organizacional.",
+    },
+    {
+        "email": "seguridaddigital@seed.dev",
+        "name": "SeguridadDigital CR",
+        "description": "Empresa de ciberseguridad que ofrece auditorías, gestión de vulnerabilidades y cumplimiento de políticas de seguridad para organizaciones.",
+    },
+    {
+        "email": "procesoscr@seed.dev",
+        "name": "ProcesosCR",
+        "description": "Consultoría de operaciones y mejora continua. Apoyamos a empresas a optimizar sus procesos internos con metodologías Lean y Six Sigma.",
+    },
+]
+
+# (company_email, name, type, modality, salary_min, salary_max, currency_id, province_id, canton_id, description, category_ids)
+SEED_VACANCIES = [
+    # TechCR Solutions
+    {
+        "company_email": "techcr@seed.dev",
+        "name": "Desarrollador Backend Python",
+        "type": "internship",
+        "modality": "remote",
+        "salary_min": 400000,
+        "salary_max": 600000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 2,
+        "description": "Buscamos practicante de backend con conocimientos en Python y Django para apoyar en el desarrollo de APIs RESTful. Trabajo 100% remoto con mentoría continua.",
+        "category_ids": [1],
+    },
+    {
+        "company_email": "techcr@seed.dev",
+        "name": "Practicante Frontend React",
+        "type": "internship",
+        "modality": "hybrid",
+        "salary_min": 350000,
+        "salary_max": None,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 1,
+        "description": "Oportunidad de práctica para estudiantes de informática con interés en desarrollo frontend. Trabajarás con React, TypeScript y Tailwind CSS en proyectos reales.",
+        "category_ids": [1],
+    },
+    # DataSoft CR
+    {
+        "company_email": "datasoft@seed.dev",
+        "name": "Analista de Datos Junior",
+        "type": "full_time",
+        "modality": "remote",
+        "salary_min": 700000,
+        "salary_max": 900000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 8,
+        "description": "Posición de tiempo completo para analista de datos. Necesitas manejo de SQL, Power BI y Excel avanzado. Nos especializamos en proyectos de BI para el sector retail.",
+        "category_ids": [3],
+    },
+    {
+        "company_email": "datasoft@seed.dev",
+        "name": "Practicante BI / Power BI",
+        "type": "internship",
+        "modality": "hybrid",
+        "salary_min": 300000,
+        "salary_max": 450000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 15,
+        "description": "Práctica profesional orientada a la creación de dashboards y análisis de datos con Power BI. Ideal para estudiantes de estadística, informática o administración.",
+        "category_ids": [3],
+    },
+    # CloudLabs
+    {
+        "company_email": "cloudlabs@seed.dev",
+        "name": "DevOps Engineer",
+        "type": "full_time",
+        "modality": "remote",
+        "salary_min": 1500,
+        "salary_max": 2200,
+        "currency_id": 2,
+        "province_id": 1,
+        "canton_id": 2,
+        "description": "Buscamos ingeniero DevOps con experiencia en Docker, CI/CD y al menos un proveedor cloud (AWS, GCP o Azure). Equipo 100% remoto y cultura tech-first.",
+        "category_ids": [2],
+    },
+    {
+        "company_email": "cloudlabs@seed.dev",
+        "name": "Practicante de Infraestructura Cloud",
+        "type": "internship",
+        "modality": "presential",
+        "salary_min": 400000,
+        "salary_max": None,
+        "currency_id": 1,
+        "province_id": 4,
+        "canton_id": 45,
+        "description": "Práctica en el área de infraestructura con enfoque en AWS y automatización con scripts. Aprenderás Docker, Terraform y fundamentos de redes.",
+        "category_ids": [2],
+    },
+    # InnovaDesign
+    {
+        "company_email": "innovadesign@seed.dev",
+        "name": "Diseñador UX/UI Senior",
+        "type": "full_time",
+        "modality": "hybrid",
+        "salary_min": 1000,
+        "salary_max": 1600,
+        "currency_id": 2,
+        "province_id": 1,
+        "canton_id": 9,
+        "description": "Diseñador senior para liderar proyectos de productos digitales. Figma, sistemas de diseño y experiencia en investigación con usuarios son indispensables.",
+        "category_ids": [6],
+    },
+    {
+        "company_email": "innovadesign@seed.dev",
+        "name": "Practicante de Diseño Digital",
+        "type": "internship",
+        "modality": "presential",
+        "salary_min": 300000,
+        "salary_max": 450000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 9,
+        "description": "Práctica para estudiantes de diseño gráfico o carrera afín. Trabajarás en wireframes, prototipos y materiales visuales para clientes reales bajo mentoría.",
+        "category_ids": [6],
+    },
+    # FinanzasCR
+    {
+        "company_email": "finanzascr@seed.dev",
+        "name": "Analista Financiero",
+        "type": "full_time",
+        "modality": "presential",
+        "salary_min": 800000,
+        "salary_max": 1100000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 1,
+        "description": "Analista para apoyar en elaboración de reportes financieros, proyecciones y análisis de variaciones. Requiere dominio de Excel, contabilidad y experiencia en Pymes.",
+        "category_ids": [11],
+    },
+    {
+        "company_email": "finanzascr@seed.dev",
+        "name": "Pasante de Contabilidad",
+        "type": "internship",
+        "modality": "presential",
+        "salary_min": 280000,
+        "salary_max": 380000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 1,
+        "description": "Pasantía en área contable para estudiantes universitarios. Apoyarás en conciliaciones bancarias, cuentas por pagar y cobrar, y preparación de planillas.",
+        "category_ids": [11],
+    },
+    # MarketingPro CR
+    {
+        "company_email": "marketingpro@seed.dev",
+        "name": "Community Manager Jr",
+        "type": "part_time",
+        "modality": "remote",
+        "salary_min": 350000,
+        "salary_max": 500000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 18,
+        "description": "Gestión de redes sociales para marcas clientes (Instagram, Facebook, LinkedIn). Requiere habilidades de redacción, creatividad y conocimiento básico de métricas.",
+        "category_ids": [14],
+    },
+    {
+        "company_email": "marketingpro@seed.dev",
+        "name": "Practicante de Marketing Digital",
+        "type": "internship",
+        "modality": "hybrid",
+        "salary_min": 250000,
+        "salary_max": None,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 13,
+        "description": "Práctica en marketing digital con foco en SEO, generación de contenido y apoyo en campañas de Google/Meta Ads. Ambiente dinámico con aprendizaje acelerado.",
+        "category_ids": [14],
+    },
+    # LogisCR
+    {
+        "company_email": "logiscr@seed.dev",
+        "name": "Asistente de Logística",
+        "type": "full_time",
+        "modality": "presential",
+        "salary_min": 550000,
+        "salary_max": 700000,
+        "currency_id": 1,
+        "province_id": 2,
+        "canton_id": 21,
+        "description": "Asistente para gestión de inventario, coordinación de entregas y apoyo al equipo de supply chain. Deseable manejo de Excel y experiencia en bodegas.",
+        "category_ids": [8],
+    },
+    {
+        "company_email": "logiscr@seed.dev",
+        "name": "Practicante Supply Chain",
+        "type": "internship",
+        "modality": "presential",
+        "salary_min": 280000,
+        "salary_max": 380000,
+        "currency_id": 1,
+        "province_id": 2,
+        "canton_id": 22,
+        "description": "Pasantía en el área de cadena de suministro. Aprenderás sobre planificación de demanda, manejo de proveedores y operación de bodega.",
+        "category_ids": [8],
+    },
+    # TalentoHumano CR
+    {
+        "company_email": "talentocr@seed.dev",
+        "name": "Reclutador Junior",
+        "type": "part_time",
+        "modality": "hybrid",
+        "salary_min": 400000,
+        "salary_max": 550000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 14,
+        "description": "Posición de medio tiempo para apoyar procesos de reclutamiento y selección de personal. Publicación en portales, screening de CVs y coordinación de entrevistas.",
+        "category_ids": [16],
+    },
+    {
+        "company_email": "talentocr@seed.dev",
+        "name": "Practicante de Recursos Humanos",
+        "type": "internship",
+        "modality": "hybrid",
+        "salary_min": 280000,
+        "salary_max": None,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 14,
+        "description": "Práctica en RRHH con énfasis en reclutamiento, onboarding y apoyo en eventos internos de cultura organizacional.",
+        "category_ids": [16],
+    },
+    # SeguridadDigital CR
+    {
+        "company_email": "seguridaddigital@seed.dev",
+        "name": "Analista de Ciberseguridad",
+        "type": "full_time",
+        "modality": "remote",
+        "salary_min": 1200,
+        "salary_max": 1800,
+        "currency_id": 2,
+        "province_id": 1,
+        "canton_id": 2,
+        "description": "Analista para gestión de vulnerabilidades, revisión de políticas de seguridad y apoyo en auditorías. Conocimiento de OWASP, IAM y fundamentos de networking.",
+        "category_ids": [4],
+    },
+    {
+        "company_email": "seguridaddigital@seed.dev",
+        "name": "Practicante de Seguridad TI",
+        "type": "internship",
+        "modality": "hybrid",
+        "salary_min": 350000,
+        "salary_max": None,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 8,
+        "description": "Práctica en ciberseguridad para estudiantes de informática o redes. Aprenderás sobre hardening, gestión de accesos y principios de seguridad de la información.",
+        "category_ids": [4],
+    },
+    # ProcesosCR
+    {
+        "company_email": "procesoscr@seed.dev",
+        "name": "Analista de Procesos",
+        "type": "full_time",
+        "modality": "presential",
+        "salary_min": 650000,
+        "salary_max": 850000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 3,
+        "description": "Analista para mapeo y optimización de procesos operativos. Experiencia con metodologías Lean, documentación de SOPs y análisis de causa raíz.",
+        "category_ids": [7],
+    },
+    {
+        "company_email": "procesoscr@seed.dev",
+        "name": "Practicante de Gestión de Calidad",
+        "type": "internship",
+        "modality": "presential",
+        "salary_min": 280000,
+        "salary_max": 380000,
+        "currency_id": 1,
+        "province_id": 1,
+        "canton_id": 3,
+        "description": "Práctica en el área de calidad. Apoyarás en auditorías internas, control de calidad de procesos y seguimiento de KPIs de mejora continua.",
+        "category_ids": [10],
+    },
+]
+
+
 class Command(BaseCommand):
     help = "Inserta los datos auxiliares iniciales en la base de datos"
 
@@ -500,4 +830,66 @@ class Command(BaseCommand):
             lambda r: {"category_id": r["category_id"], "name": r["name"]},
         )
 
+        self._seed_companies()
+        self._seed_vacancies()
+
         self.stdout.write(self.style.SUCCESS("\nSeed completado exitosamente."))
+
+    def _seed_companies(self):
+        role_empresa = Role.objects.get(id=4)
+        hashed_pw = make_password("seed1234")
+        created_count = 0
+        for item in SEED_COMPANIES:
+            _, created = Company.objects.get_or_create(
+                email=item["email"],
+                defaults={
+                    "name": item["name"],
+                    "description": item["description"],
+                    "password": hashed_pw,
+                    "role": role_empresa,
+                    "is_active": True,
+                    "consent": True,
+                },
+            )
+            if created:
+                created_count += 1
+        self.stdout.write(
+            f"  Companies: {len(SEED_COMPANIES)} registros ({created_count} nuevos)"
+        )
+
+    def _seed_vacancies(self):
+        company_map = {c.email: c for c in Company.objects.filter(
+            email__in=[v["company_email"] for v in SEED_VACANCIES]
+        )}
+        category_map = {cat.id: cat for cat in Category.objects.all()}
+        created_count = 0
+        for item in SEED_VACANCIES:
+            company = company_map.get(item["company_email"])
+            if not company:
+                continue
+            vacancy, created = Vacancy.objects.get_or_create(
+                company=company,
+                name=item["name"],
+                defaults={
+                    "type": item["type"],
+                    "modality": item["modality"],
+                    "description": item["description"],
+                    "salary_min": item["salary_min"],
+                    "salary_max": item["salary_max"],
+                    "currency_id": item.get("currency_id"),
+                    "province_id": item.get("province_id"),
+                    "canton_id": item.get("canton_id"),
+                    "is_active": True,
+                },
+            )
+            if created:
+                created_count += 1
+                for cat_id in item.get("category_ids", []):
+                    cat = category_map.get(cat_id)
+                    if cat:
+                        VacancyCategory.objects.get_or_create(
+                            vacancy=vacancy, category=cat
+                        )
+        self.stdout.write(
+            f"  Vacancies: {len(SEED_VACANCIES)} registros ({created_count} nuevos)"
+        )

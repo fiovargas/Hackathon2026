@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { postData } from '../../../services/api';
 import FormInput from '../../ui/FormInput/FormInput';
 import Checkbox from '../../ui/Checkbox/Checkbox';
@@ -106,7 +107,19 @@ function FormEmpresas() {
       logoClassName='zfem-logo'
       title='Registro de Empresa'
       titleClassName='zfem-title'
-      subtitle='Completa el formulario para registrar tu empresa o institución'
+      subtitle={
+        <>
+          ¿Eres estudiante o practicante?{' '}
+          <Link to='/register' className='zfem-link'>
+            Regístrate aquí
+          </Link>
+          {' · '}
+          ¿Ya tienes cuenta?{' '}
+          <Link to='/login' className='zfem-link'>
+            Inicia sesión
+          </Link>
+        </>
+      }
       subtitleClassName='zfem-subtitle'
       formClassName='zfem-form'
       onSubmit={handleSubmit}

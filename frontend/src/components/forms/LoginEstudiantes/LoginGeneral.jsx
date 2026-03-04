@@ -68,12 +68,12 @@ function LoginGeneral() {
     try {
       const { remember: _remember, ...payload } = formData;
       await login(payload);
-      navigate('/');
+      navigate('/Pasantias');
     } catch (error) {
       const data = error.response?.data;
       setServerError(
         data?.detail ||
-        'Email/teléfono o contraseña incorrectos. Intenta de nuevo.',
+          'Email/teléfono o contraseña incorrectos. Intenta de nuevo.',
       );
     } finally {
       setLoading(false);
@@ -105,13 +105,22 @@ function LoginGeneral() {
             <span>O continuar con</span>
           </div>
           <div className='zfll-social-logins'>
-            <button type='button' className='zfll-social-btn zfll-social-google'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-google'
+            >
               <FcGoogle className='zfll-social-icon' />
             </button>
-            <button type='button' className='zfll-social-btn zfll-social-facebook'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-facebook'
+            >
               <FaFacebook className='zfll-social-icon' />
             </button>
-            <button type='button' className='zfll-social-btn zfll-social-instagram'>
+            <button
+              type='button'
+              className='zfll-social-btn zfll-social-instagram'
+            >
               <FaInstagram className='zfll-social-icon' />
             </button>
           </div>

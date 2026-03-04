@@ -1,41 +1,49 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, Building2, User, LogIn, Menu, X, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  Briefcase,
+  Building2,
+  User,
+  LogIn,
+  Menu,
+  X,
+  ArrowRight,
+  ShieldCheck,
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useAuth } from '../../contexts/AuthContext';
 import './Navbar.css';
 import LogoLima from '../../assets/LogoLima.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navLinks = [
     { name: 'Inicio', path: '/' },
     { name: 'Practicantes/Pasantes', path: '/Pasantias' },
-    { name: 'Empresas', path: '/Empresas' }
+    { name: 'Empresas', path: '/Empresas' },
   ];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-inner">
-          <div className="navbar-left">
-            <Link to="/" className="navbar-logo">
-              <img 
-                src= {LogoLima}  
-                alt="Logo La Lima" 
-                className="navbar-icon"
-              />
-              <span className="navbar-title">
-                Bolsa de empleo <span className="navbar-title-highlight"> La Lima</span>
+    <nav className='navbar'>
+      <div className='navbar-container'>
+        <div className='navbar-inner'>
+          <div className='navbar-left'>
+            <Link to='/' className='navbar-logo'>
+              <img src={LogoLima} alt='Logo La Lima' className='navbar-icon' />
+              <span className='navbar-title'>
+                Bolsa de empleo{' '}
+                <span className='navbar-title-highlight'> La Lima</span>
               </span>
             </Link>
           </div>
 
           {/* Desktop Links */}
-          <div className="navbar-desktop-menu">
+          <div className='navbar-desktop-menu'>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -45,21 +53,24 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <div className="navbar-divider" />
-            <Link
-              to="/login"
-              className="nav-login-btn"
-            >
+            <div className='navbar-divider' />
+            {user?.role === 1 && (
+              <Link to='/admin' className='nav-admin-btn'>
+                <ShieldCheck size={16} />
+                <span>Admin</span>
+              </Link>
+            )}
+            <Link to='/login' className='nav-login-btn'>
               <span>Entrar a la aplicación</span>
               <ArrowRight size={18} />
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="navbar-mobile-toggle">
+          <div className='navbar-mobile-toggle'>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="mobile-toggle-btn"
+              className='mobile-toggle-btn'
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -74,9 +85,9 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mobile-menu"
+            className='mobile-menu'
           >
-            <div className="mobile-menu-inner">
+            <div className='mobile-menu-inner'>
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -87,20 +98,45 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="mobile-menu-divider">
+              <div className='mobile-menu-divider'>
                 <Link
-                  to="/perfil"
+                  to='/perfil'
                   onClick={() => setIsOpen(false)}
-                  className="mobile-nav-link inactive"
+                  className='mobile-nav-link inactive'
                 >
                   Mi Perfil
                 </Link>
+                {user?.role === 1 && (
+                  <Link
+                    to='/admin'
+                    onClick={() => setIsOpen(false)}
+                    className='mobile-nav-link inactive'
+                  >
+                    <ShieldCheck
+                      size={16}
+                      style={{
+                        display: 'inline',
+                        marginRight: '4px',
+                        verticalAlign: 'middle',
+                      }}
+                    />
+                    Panel Admin
+                  </Link>
+                )}
                 <Link
-                  to="/login"
+                  to='/login'
                   onClick={() => setIsOpen(false)}
-                  className="mobile-nav-link mobile-login-btn"
+                  className='mobile-nav-link mobile-login-btn'
                 >
-                  Login/Register <ArrowRight size={16} style={{ display: 'inline', marginLeft: '4px', verticalAlign: 'middle' }} />
+                  Login/Register{' '}
+                  <ArrowRight
+                    size={16}
+                    style={{
+                      display: 'inline',
+                      marginLeft: '4px',
+                      verticalAlign: 'middle',
+                    }}
+                  />
                 </Link>
               </div>
             </div>
