@@ -15,8 +15,6 @@ function Routing() {
       <Routes>
         {/* Rutas Públicas */}
         <Route path='/' element={<Inicio />} />
-        <Route path='/Navbar' element={<Navbar />} />
-        <Route path='/Footer' element={<Footer />} />
         <Route path='/register' element={<RegistroEstudiantes />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register/companies' element={<RegisterEmpresas />} />

@@ -6,7 +6,7 @@ import Footer from '../components/LandingPage/Footer'
 function Inicio() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <LandingPage />
       <Footer />
     </div>
