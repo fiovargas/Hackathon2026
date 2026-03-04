@@ -8,8 +8,10 @@ import ListadoUsuarios from '../pages/ListadoUsuarios';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
 import Empresas from '../pages/Empresas';
 import Perfil from '../pages/Perfil';
+import DirectorioEmpresas from '../pages/DirectorioEmpresas';
 import AdminPermision from './AdminPermision';
 import InstitutionRoute from './InstitutionRoute';
+import PrivateRoute from './PrivateRoute';
 
 function Routing() {
   return (
@@ -21,7 +23,12 @@ function Routing() {
         <Route path='/login' element={<Login />} />
         <Route path='/register/companies' element={<RegisterEmpresas />} />
         <Route path='/Empresas' element={<Empresas />} />
-        <Route path='/perfil' element={<Perfil />} />
+
+        {/* Rutas privadas (autenticado) */}
+        <Route element={<PrivateRoute />}>
+          <Route path='/perfil' element={<Perfil />} />
+          <Route path='/directorio' element={<DirectorioEmpresas />} />
+        </Route>
 
         {/* Rutas Institución de formación (rol id === 5) */}
         <Route element={<InstitutionRoute />}>

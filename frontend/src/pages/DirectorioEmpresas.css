@@ -1,0 +1,230 @@
+/* ===== LAYOUT PRINCIPAL ===== */
+.directorio-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8faf9;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.directorio-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-right: 1px solid #e5e7eb;
+  padding: 32px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 16px;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.sidebar-item:hover {
+  background-color: #f3f4f6;
+}
+
+.sidebar-item--active {
+  background-color: #ebf5d6;
+  color: #4a7a0d;
+  font-weight: 600;
+}
+
+/* ===== ÁREA PRINCIPAL ===== */
+.directorio-main {
+  flex: 1;
+  padding: 40px 36px;
+  min-width: 0;
+}
+
+.directorio-header {
+  margin-bottom: 28px;
+}
+
+.directorio-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.directorio-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ===== GRID DE EMPRESAS ===== */
+.empresas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .empresas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .directorio-page {
+    flex-direction: column;
+  }
+
+  .directorio-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px;
+  }
+
+  .sidebar-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .empresas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== TARJETA DE EMPRESA ===== */
+.empresa-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.empresa-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+/* ===== AVATAR ===== */
+.empresa-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #7aac21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #e5e7eb;
+}
+
+.empresa-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.empresa-initials {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ===== NOMBRE Y DESCRIPCIÓN ===== */
+.empresa-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.empresa-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.empresa-desc--empty {
+  font-style: italic;
+}
+
+/* ===== ESTADOS ===== */
+.directorio-loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.directorio-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #7aac21;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.directorio-error,
+.directorio-empty {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.directorio-error {
+  color: #b91c1c;
+}
