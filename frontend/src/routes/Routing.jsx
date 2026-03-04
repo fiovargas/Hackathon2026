@@ -7,6 +7,7 @@ import RegistroEstudiantes from '../pages/RegistroEstudiantes';
 import ListadoUsuarios from '../pages/ListadoUsuarios';
 import Navbar from '../components/LandingPage/Navbar';
 import Footer from '../components/LandingPage/Footer';
+import Empresas from '../pages/Empresas';
 
 function Routing() {
   return (
@@ -20,6 +21,7 @@ function Routing() {
         <Route path='/login' element={<Login />} />
         <Route path='/register/companies' element={<RegisterEmpresas />} />
         <Route path='/ListadoUsuarios' element={<ListadoUsuarios />} />
+        <Route path='/Empresas' element={<Empresas />} />
       </Routes>
     </Router>
   );
