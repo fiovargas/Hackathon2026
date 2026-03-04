@@ -1,4 +1,4 @@
-from apps.authentication.models import Company
+from apps.authentication.models import Company, InstitutionFormation
 from django.conf import settings
 from django.db import models
 
@@ -63,3 +63,54 @@ class UserProfileField(models.Model):
 
     class Meta:
         db_table = "user_profile_fields"
+
+
+class UserInstitutionFormation(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="institution_formations",
+    )
+    institution = models.ForeignKey(
+        InstitutionFormation,
+        on_delete=models.CASCADE,
+        related_name="enrolled_users",
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "user_institution_formation"
+        unique_together = ("user", "institution")
+
+
+class InstitutionInvitation(models.Model):
+    STATUS_PENDING = "pending"
+    STATUS_ACCEPTED = "accepted"
+    STATUS_REJECTED = "rejected"
+    STATUS_CHOICES = [
+        (STATUS_PENDING, "Pending"),
+        (STATUS_ACCEPTED, "Accepted"),
+        (STATUS_REJECTED, "Rejected"),
+    ]
+
+    institution = models.ForeignKey(
+        InstitutionFormation,
+        on_delete=models.CASCADE,
+        related_name="sent_invitations",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="institution_invitations",
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default=STATUS_PENDING,
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = "institution_invitation"
+        unique_together = ("institution", "user")

@@ -2,11 +2,12 @@ from apps.authentication.models import (
     AvailabilityStatus,
     Company,
     InstitutionFormation,
+    Role,
     User,
 )
 from rest_framework import serializers
 
-from .models import CompanyExternalLink, ExternalLink, ProfileField, UserProfileField
+from .models import CompanyExternalLink, ExternalLink, InstitutionInvitation, ProfileField, UserProfileField
 
 ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp", "image/gif"}
 
@@ -214,3 +215,45 @@ class InstitutionProfileUpdateSerializer(serializers.Serializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
+
+
+# ─── INSTITUTION USER REGISTRATION ───────────────────────────────────────────
+
+ROLE_ASPIRANTE = 2
+ROLE_PRACTICANTE = 3
+_ALLOWED_ROLES = {ROLE_ASPIRANTE, ROLE_PRACTICANTE}
+
+
+class RegisterUserByInstitutionSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=100)
+    last_name = serializers.CharField(max_length=100)
+    email = serializers.EmailField()
+    role_id = serializers.IntegerField()
+
+    def validate_role_id(self, value):
+        if value not in _ALLOWED_ROLES:
+            raise serializers.ValidationError(
+                "Role must be Aspirante (2) or Practicante (3)."
+            )
+        try:
+            Role.objects.get(id=value)
+        except Role.DoesNotExist:
+            raise serializers.ValidationError("Role does not exist.")
+        return value
+
+
+class InstitutionInvitationSerializer(serializers.ModelSerializer):
+    institution_name = serializers.ReadOnlyField(source="institution.name")
+    user_name = serializers.SerializerMethodField()
+    user_email = serializers.ReadOnlyField(source="user.email")
+
+    class Meta:
+        model = InstitutionInvitation
+        fields = ["id", "institution", "institution_name", "user", "user_name", "user_email", "status", "created_at"]
+
+    def get_user_name(self, obj):
+        return f"{obj.user.name} {obj.user.last_name}"
+
+
+class RespondInvitationSerializer(serializers.Serializer):
+    action = serializers.ChoiceField(choices=["accept", "reject"])
