@@ -124,6 +124,12 @@ class RegisterInstitutionSerializer(serializers.ModelSerializer):
         return institution
 
 
+class CompanyListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Company
+        fields = ["id", "name", "description", "image_url"]
+
+
 class PendingCompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company

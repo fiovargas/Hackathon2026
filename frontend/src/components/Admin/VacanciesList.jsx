@@ -29,6 +29,17 @@ const VacanciesList = () => {
             starts_at: "2026-03-02",
             ends_at: "2026-04-02",
             created_at: "2026-03-02T14:30:00Z"
+        },
+        {
+            id: 3,
+            name: "Frontend Developer (JUNIOR EXTREMO)",
+            company_name: "Startup Inc",
+            description: "Buscamos un junior con 10 años de experiencia que trabaje gratis.",
+            is_active: true,
+            is_reported: true,
+            starts_at: "2026-03-03",
+            ends_at: "2026-03-10",
+            created_at: "2026-03-03T09:00:00Z"
         }
     ]);
 
@@ -38,6 +49,10 @@ const VacanciesList = () => {
 
     const handleToggleActive = async (id, currentStatus) => {
         setVacancies(vacancies.map(v => v.id === id ? { ...v, is_active: !currentStatus } : v));
+    };
+
+    const handleDelete = (id) => {
+        setVacancies(vacancies.filter(v => v.id !== id));
     };
 
     const filteredVacancies = vacancies.filter(v => {
@@ -115,9 +130,12 @@ const VacanciesList = () => {
                                 <TableRow hover key={v.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell sx={{ py: 2.5 }}>
                                         <Typography variant="subtitle2" sx={{ fontWeight: 800, color: 'text.primary' }}>{v.name}</Typography>
-                                        <Typography variant="caption" sx={{ color: 'text.secondary', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                                        <Typography variant="caption" sx={{ color: 'text.secondary', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical', overflow: 'hidden', mb: 0.5 }}>
                                             {v.description}
                                         </Typography>
+                                        {v.is_reported && (
+                                            <Chip label="Reportada" size="small" color="error" variant="outlined" sx={{ height: 20, fontSize: '0.65rem', fontWeight: 800 }} />
+                                        )}
                                     </TableCell>
                                     <TableCell sx={{ py: 2.5, fontWeight: 600, color: 'text.secondary' }}>{v.company_name}</TableCell>
                                     <TableCell sx={{ py: 2.5 }}>
@@ -178,6 +196,7 @@ const VacanciesList = () => {
                                                 variant="outlined"
                                                 color="error"
                                                 size="small"
+                                                onClick={() => handleDelete(v.id)}
                                                 startIcon={<span className="material-symbols-outlined" style={{ fontSize: 16 }}>delete</span>}
                                                 sx={{ bgcolor: 'background.paper', px: 2, '&:hover': { bgcolor: 'error.main', color: '#fff' } }}
                                             >
