@@ -1,0 +1,200 @@
+/* ============================================================
+   MÉTRICAS CARD - VERSIÓN CORREGIDA
+   ============================================================ */
+
+.metricas-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background: transparent;
+  width: 100%;
+}
+
+.metrica-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metrica-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+}
+
+/* HEADER */
+.metrica-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.metrica-header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.metrica-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+/* CONTENIDO */
+.metrica-content {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.metrica-numero {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.metrica-etiqueta {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   COLORES POR TIPO
+   ============================================================ */
+
+.metrica-card.ofertas .metrica-icon {
+  color: #3b82f6;
+}
+
+.metrica-card.ofertas .metrica-etiqueta {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.metrica-card.postulaciones .metrica-icon {
+  color: #ef4444;
+}
+
+.metrica-card.postulaciones .metrica-etiqueta {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.metrica-card.entrevistas .metrica-icon {
+  color: #10b981;
+}
+
+.metrica-card.entrevistas .metrica-etiqueta {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ============================================================
+   RESPONSIVE - TABLET
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .metricas-container {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .metrica-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .metrica-numero {
+    font-size: 32px;
+  }
+
+  .metrica-header h3 {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .metricas-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .metrica-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .metrica-numero {
+    font-size: 28px;
+  }
+
+  .metrica-header h3 {
+    font-size: 11px;
+  }
+
+  .metrica-etiqueta {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .metrica-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE - MOBILE PEQUEÑO
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .metricas-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .metrica-card {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .metrica-numero {
+    font-size: 24px;
+  }
+
+  .metrica-header h3 {
+    font-size: 10px;
+  }
+
+  .metrica-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

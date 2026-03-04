@@ -8,6 +8,7 @@ import ListadoUsuarios from '../pages/ListadoUsuarios';
 import Navbar from '../components/LandingPage/Navbar';
 import Footer from '../components/LandingPage/Footer';
 import AdminDashboard from '../pages/Admin/AdminDashboard';
+import Empresas from '../pages/Empresas';
 
 function Routing() {
   return (
@@ -22,6 +23,7 @@ function Routing() {
 
         {/* Admin */}
         <Route path='/admin' element={<AdminDashboard />} />
+        <Route path='/Empresas' element={<Empresas />} />
       </Routes>
     </Router>
   );
