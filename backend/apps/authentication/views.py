@@ -10,6 +10,7 @@ from .emails import generate_password, send_approval_email
 from .models import Company, InstitutionFormation, Role, User
 from .permissions import IsAdmin
 from .serializers import (
+    CompanyListSerializer,
     CompanyProfileSerializer,
     InstitutionProfileSerializer,
     LoginSerializer,
@@ -258,5 +259,20 @@ class MeView(APIView):
     def get(self, request):
         serializer_class = self.SERIALIZERS.get(type(request.user))
         if not serializer_class:
-            return Response({"detail": "Unknown entity type"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"detail": "Unknown entity type"}, status=status.HTTP_400_BAD_REQUEST
+            )
         return Response(serializer_class(request.user).data)
+
+
+class CompanyListView(APIView):
+    authentication_classes = [CookieJWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        qs = Company.objects.filter(is_active=True)
+        category_id = request.query_params.get("category_id")
+        if category_id:
+            qs = qs.filter(vacancies__categories__id=category_id).distinct()
+        serializer = CompanyListSerializer(qs, many=True)
+        return Response(serializer.data)
