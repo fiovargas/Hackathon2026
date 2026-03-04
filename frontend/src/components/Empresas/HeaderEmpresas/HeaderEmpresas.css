@@ -1,9 +1,10 @@
 .header-empresas {
   position: fixed;
-  top: 20px;
+  top: 10px;
   left: 250px;
   right: 0;
   height: 70px;
+  padding: 10px 30px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
