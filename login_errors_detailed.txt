@@ -1,0 +1,20 @@
+backend  | 
+backend  | [03/Mar/2026 21:39:15] "POST /api/auth/register/user/ HTTP/1.1" 500 180895
+backend  | [03/Mar/2026 21:52:28] "POST /api/auth/register/user/ HTTP/1.1" 201 36
+backend  | [03/Mar/2026 21:53:43] "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+backend  | Bad Request: /api/auth/login/
+backend  | [03/Mar/2026 21:53:43] "POST /api/auth/login/ HTTP/1.1" 400 44
+backend  | Bad Request: /api/auth/login/
+backend  | [03/Mar/2026 21:57:19] "POST /api/auth/login/ HTTP/1.1" 400 44
+backend  | /app/apps/authentication/views.py changed, reloading.
+backend  | Watching for file changes with StatReloader
+backend  | Performing system checks...
+backend  | 
+backend  | System check identified no issues (0 silenced).
+backend  | March 03, 2026 - 21:58:03
+backend  | Django version 5.2.1, using settings 'config.settings'
+backend  | Starting development server at http://0.0.0.0:8000/
+backend  | Quit the server with CONTROL-C.
+backend  | 
+backend  | WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+backend  | For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/

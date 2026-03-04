@@ -4,14 +4,14 @@ export const companies = [
     name: "Empresa Tecnológica",
     sector: "Tecnología",
     description: "Empresa líder en innovación y desarrollo.",
-    logo: "https://via.placeholder.com/60"
+    logo: "https://ui-avatars.com/api/?name=Empresa+Tecno&background=0D8ABC&color=fff"
   },
   {
     id: 2,
     name: "Industria Médica",
     sector: "Dispositivos Médicos",
     description: "Fabricación de equipos médicos de alta calidad.",
-    logo: "https://via.placeholder.com/60"
+    logo: "https://ui-avatars.com/api/?name=Ind+Medica&background=FF5733&color=fff"
   }
 ];
 

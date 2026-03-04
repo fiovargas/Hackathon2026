@@ -1,0 +1,20 @@
+backend  |     return executor(sql, params, many, context)
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 100, in _execute
+backend  |     with self.db.wrap_database_errors:
+backend  |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/utils.py", line 91, in __exit__
+backend  |     raise dj_exc_value.with_traceback(traceback) from exc_value
+backend  |   File "/usr/local/lib/python3.14/site-packages/django/db/backends/utils.py", line 105, in _execute
+backend  |     return self.cursor.execute(sql, params)
+backend  |            ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+backend  | django.db.utils.ProgrammingError: relation "user" does not exist
+backend  | LINE 1: SELECT 1 AS "a" FROM "user" WHERE "user"."email" = 'arrozcar...
+backend  |                              ^
+backend  | 
+backend  | [03/Mar/2026 21:39:15] "POST /api/auth/register/user/ HTTP/1.1" 500 180895
+backend  | [03/Mar/2026 21:52:28] "POST /api/auth/register/user/ HTTP/1.1" 201 36
+backend  | [03/Mar/2026 21:53:43] "OPTIONS /api/auth/login/ HTTP/1.1" 200 0
+backend  | Bad Request: /api/auth/login/
+backend  | [03/Mar/2026 21:53:43] "POST /api/auth/login/ HTTP/1.1" 400 44
+backend  | Bad Request: /api/auth/login/
+backend  | [03/Mar/2026 21:57:19] "POST /api/auth/login/ HTTP/1.1" 400 44
