@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, Building2, User, LogIn, Menu, X } from 'lucide-react';
+import { Briefcase, Building2, User, LogIn, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import './Navbar.css';
+import LogoLima from '../../assets/LogoLima.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Inicio', path: '/', icon: <Briefcase size={18} /> },
-    { name: 'Empresas', path: '/Empresas', icon: <Building2 size={18} /> },
-    { name: 'Pasantias/Aspirantes', path: '/Pasantias', icon: <Briefcase size={18} /> },
-    { name: 'Ofertas', path: '/Ofertas', icon: <Briefcase size={18} /> },
+    { name: 'Inicio', path: '/' },
+    { name: 'Estudiantes', path: '/Pasantias' },
+    { name: 'Empresas', path: '/Empresas' },
+    { name: 'Directorio', path: '/Ofertas' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -23,9 +24,13 @@ export default function Navbar() {
         <div className="navbar-inner">
           <div className="navbar-left">
             <Link to="/" className="navbar-logo">
-              <div className="navbar-icon">L</div>
+              <img 
+                src= {LogoLima}  
+                alt="Logo La Lima" 
+                className="navbar-icon"
+              />
               <span className="navbar-title">
-                Bolsa de Empleo <span className="navbar-title-highlight">La Lima</span>
+                Bolsa de empleo <span className="navbar-title-highlight"> La Lima</span>
               </span>
             </Link>
           </div>
@@ -44,16 +49,10 @@ export default function Navbar() {
             <div className="navbar-divider" />
             <Link
               to="/login"
-              className="nav-link inactive"
+              className="nav-login-btn"
             >
-              <LogIn size={18} />
-              <span>Ingresar</span>
-            </Link>
-            <Link
-              to="/perfil"
-              className="nav-btn-icon"
-            >
-              <User size={20} />
+              <span>Entrar a la aplicación</span>
+              <ArrowRight size={18} />
             </Link>
           </div>
 
@@ -91,18 +90,18 @@ export default function Navbar() {
               ))}
               <div className="mobile-menu-divider">
                 <Link
-                  to="/login"
+                  to="/perfil"
                   onClick={() => setIsOpen(false)}
                   className="mobile-nav-link inactive"
                 >
-                  Ingresar
+                  Mi Perfil
                 </Link>
                 <Link
-                  to="/perfil"
+                  to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="mobile-nav-link active"
+                  className="mobile-nav-link mobile-login-btn"
                 >
-                  Mi Perfil
+                  Entrar a la aplicación <ArrowRight size={16} style={{ display: 'inline', marginLeft: '4px', verticalAlign: 'middle' }} />
                 </Link>
               </div>
             </div>

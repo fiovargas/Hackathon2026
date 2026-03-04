@@ -163,7 +163,7 @@ const InstitutoFormacion = () => {
   return (
     <div className="students-container">
       <div className="students-header">
-        <h2>Estudiantes</h2>
+        <h2>Usuarios</h2>
 
         <div className="students-actions">
           <select onChange={(e) => setFilter(e.target.value)}>

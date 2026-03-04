@@ -1,90 +1,132 @@
 import React from 'react';
-import { Search, MapPin, Building2, ArrowRight, Star, TrendingUp, Users } from 'lucide-react';
+import { Search, MapPin, Building2, ArrowRight, Star, TrendingUp, Users, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { companies, jobs } from "../../data/mockData"; 
-import './LandingPage.css'; // Importamos el CSS
+import { companies, jobs } from "../../data/mockData";
+import './LandingPage.css';
 
 const LandingPage = () => {
   return (
     <div className="home-container">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-gradient" />
         <div className="hero-content">
-          <div className="hero-text">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="hero-title"
-            >
-              Bolsa de Empleo <br />
-              <span className="highlight">Zona Franca La Lima</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="hero-subtitle"
-            >
-              Conectamos el mejor talento de Cartago con las empresas multinacionales más innovadoras del país.
-            </motion.p>
-
-            {/* Search Bar */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="search-bar"
-            >
-              <div className="search-input">
-                <Search className="icon" />
-                <input type="text" placeholder="Puesto, empresa o palabra clave" />
-              </div>
-              <div className="search-location">
-                <MapPin className="icon" />
-                <select>
-                  <option>La Lima, Cartago</option>
-                  <option>Remoto</option>
-                  <option>Híbrido</option>
-                </select>
-              </div>
-              <button className="search-button">Buscar Empleo</button>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="hero-badge"
+          >
+            Plataforma Profesional La Lima
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="hero-title"
+          >
+            Conectamos talento de alta calidad con <span className="highlight">empresas de alto nivel</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="hero-subtitle"
+          >
+            Nuestro enfoque permite a los estudiantes y profesionales ganar experiencia
+            mientras las empresas operando en La Lima acceden al mejor talento del mercado.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="hero-actions"
+          >
+            <Link to="/register" className="btn-primary">
+              Comienza Ahora <ArrowRight size={20} />
+            </Link>
+            <Link to="/empresas" className="btn-secondary">
+              Para Empresas
+            </Link>
+          </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
       <section className="stats-section">
         <div className="stats-grid">
-          {[ 
-            { label: 'Ofertas Activas', value: '150+', icon: TrendingUp },
-            { label: 'Empresas', value: '30+', icon: Building2 },
-            { label: 'Candidatos', value: '5k+', icon: Users },
-            { label: 'Contrataciones', value: '800+', icon: Star },
+          {[
+            { label: 'estudiantes u operarios', value: '+2000' },
+            { label: 'empresas de alto nivel', value: '+30' },
+            { label: 'contrataciones exitosas', value: '+800' },
+            { label: 'horas de aprendizaje', value: '+15000' },
           ].map((stat, i) => (
-            <div key={i} className="stat-card">
-              <div className="stat-icon">
-                <stat.icon />
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              key={i}
+              className="stat-card"
+            >
               <div className="stat-value">{stat.value}</div>
               <div className="stat-label">{stat.label}</div>
-            </div>
+            </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services-section">
+        <div className="services-container">
+          <div className="section-header">
+            <h2>Buscamos que tu empresa y la educación crezcan</h2>
+            <p>¿Quieres acceder a los mejores candidatos para tu empresa? Te mostramos nuestros servicios</p>
+          </div>
+          <div className="services-grid">
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="service-card"
+            >
+              <div className="service-icon">
+                <Users size={24} />
+              </div>
+              <h3>Pasantías Profesionales</h3>
+              <ul>
+                <li><CheckCircle size={18} /> Conecta con estudiantes validados por entidades.</li>
+                <li><CheckCircle size={18} /> Respaldamos: propiedad intelectual, confidencialidad.</li>
+                <li><CheckCircle size={18} /> Impulsa tus proyectos con talento calificado.</li>
+              </ul>
+              <Link to="/Pasantias" className="btn-secondary" style={{ display: 'inline-flex', padding: '0.5rem 1.5rem', marginTop: '1rem' }}>
+                Ver Pasantías
+              </Link>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="service-card"
+            >
+              <div className="service-icon">
+                <TrendingUp size={24} />
+              </div>
+              <h3>Talento Operativo y Profesional</h3>
+              <ul>
+                <li><CheckCircle size={18} /> Ideal para empresas operando en el parque.</li>
+                <li><CheckCircle size={18} /> Procesos de reclutamiento dirigidos a la zona.</li>
+                <li><CheckCircle size={18} /> Accede al mejor talento y crece tu equipo.</li>
+              </ul>
+              <Link to="/Ofertas" className="btn-secondary" style={{ display: 'inline-flex', padding: '0.5rem 1.5rem', marginTop: '1rem' }}>
+                Ver Ofertas
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Featured Companies */}
       <section className="featured-companies">
         <div className="section-header">
-          <div>
-            <h2>Empresas Destacadas</h2>
-            <p>Líderes mundiales operando en La Lima</p>
-          </div>
-          <Link to="/empresas" className="see-all">
-            Ver todas <ArrowRight />
-          </Link>
+          <h2>Empresas que promueven el crecimiento en La Lima</h2>
+          <p>Estamos orgullosos de las empresas que conforman nuestro centro.</p>
         </div>
         <div className="companies-grid">
           {companies.map((company) => (
@@ -94,56 +136,31 @@ const LandingPage = () => {
               <p className="company-sector">{company.sector}</p>
               <p className="company-desc">{company.description}</p>
               <Link to={`/empresas/${company.id}`} className="company-link">
-                Ver empleos
+                Ver perfil completo
               </Link>
             </motion.div>
           ))}
         </div>
-      </section>
-
-      {/* Latest Jobs */}
-      <section className="latest-jobs">
-        <div className="section-header">
-          <div>
-            <h2>Últimas Ofertas</h2>
-            <p>Encuentra tu próximo desafío profesional</p>
-          </div>
-          <Link to="/empleos" className="see-all">
-            Ver todas <ArrowRight />
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Link to="/empresas" className="btn-primary" style={{ display: 'inline-flex' }}>
+            Explorar todas las empresas <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
           </Link>
-        </div>
-        <div className="jobs-list">
-          {jobs.slice(0, 4).map((job) => (
-            <div key={job.id} className="job-card">
-              <div className="job-info">
-                <div className="job-icon">
-                  <Building2 />
-                </div>
-                <div>
-                  <h3>{job.title}</h3>
-                  <div className="job-details">
-                    <span><Building2 /> {job.companyName}</span>
-                    <span><MapPin /> {job.location}</span>
-                    <span className="job-type">{job.type}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="job-action">
-                <span>{job.postedAt}</span>
-                <button>Aplicar</button>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="cta-section">
-        <h2>¿Listo para dar el siguiente paso?</h2>
-        <p>Únete a miles de profesionales que ya han encontrado su carrera ideal en Zona Franca La Lima.</p>
-        <div className="cta-buttons">
-          <Link to="/register" className="cta-primary">Crear mi Perfil</Link>
-          <Link to="/empleos" className="cta-secondary">Explorar Empleos</Link>
+        <div className="cta-content">
+          <h2>¿Listo para dar el siguiente paso?</h2>
+          <p>Únete a miles de profesionales que ya han encontrado su carrera ideal en Zona Franca La Lima.</p>
+          <div className="cta-buttons">
+            <Link to="/register" className="cta-primary">
+              Crear mi Perfil
+            </Link>
+            <Link to="/Ofertas" className="cta-secondary">
+              Explorar Empleos
+            </Link>
+          </div>
         </div>
       </section>
     </div>
