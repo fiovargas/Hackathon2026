@@ -68,7 +68,10 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
+        from .models import Role
         password = validated_data.pop("password")
+        if not validated_data.get("role"):
+            validated_data["role"] = Role.objects.get(id=3)  # Practicante por defecto
         user = User(**validated_data)
         user.set_password(password)
         user.save()
